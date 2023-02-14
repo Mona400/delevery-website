@@ -3,13 +3,13 @@
     {
       "id": 1,
       "title": "json-server",
-      "author": "typicodedsfsdf"
+      "author": "typicode"
     }
   ],
   "comments": [
     {
       "id": 1,
-      "body": "some comments",
+      "body": "some comment",
       "postId": 1
     }
   ],
