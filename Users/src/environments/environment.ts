@@ -4,7 +4,7 @@
 
 export const environment = {
   // baseApi:"https://fakestoreapi.com/",
-  baseApi:" http://aklney.onrender.com/",
+  baseApi:"https://aklney.onrender.com/",
 
 
   production: false

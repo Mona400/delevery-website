@@ -48,7 +48,6 @@ export class HomeComponent {
       clearInterval(this.x);
       this.days="Offer Is Expired"
     }
-    console.log(this.hours)
   },1000)
 
 }

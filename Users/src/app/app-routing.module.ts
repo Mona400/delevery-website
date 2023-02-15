@@ -13,11 +13,12 @@ import { HomeComponent } from "./home/home/home.component";
 import { AllResturantsComponent } from "./all-resturants/all-resturants/all-resturants.component";
 import { FooterComponent } from "./shared/components/footer/footer.component";
 import { ProductCrudComponent } from "./product-crud/component/product-crud/product-crud.component";
+import { RestDetailsComponent } from "./all-resturants/rest-details/rest-details.component";
 var routes: Routes  = [
   {path:"product-crud",component:ProductCrudComponent},
   {path:"all-resturants",component:AllResturantsComponent},
   {path:"products",component:AllProductsComponent},
-
+  {path:"restaurant/:slug",component:RestDetailsComponent},
   {path:"home",component:HomeComponent},
   {path:"details/:id",component:ProductDetailsComponent},
   {path:"cart",component:CardComponent},

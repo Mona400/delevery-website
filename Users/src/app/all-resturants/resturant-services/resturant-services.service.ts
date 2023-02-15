@@ -9,15 +9,6 @@ export class ResturantServicesService {
 
   constructor(private http:HttpClient) { }
 
-  GetallRest(){
-    return this.http.get("http://aklney.onrender.com/restaurants")
-
-  }
-
-  ShowRest(id:any){
-    return this.http.get("http://aklney.onrender.com/restaurants/"+id)
-
-  }
   getAllProducts() {
     return this.http.get(environment.baseApi + 'restaurants');
   }

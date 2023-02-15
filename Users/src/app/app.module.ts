@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AllResturantsComponent } from './all-resturants/all-resturants/all-resturants.component';
 import { ProductCrudComponent } from './product-crud/component/product-crud/product-crud.component';
+import { RestDetailsComponent } from './all-resturants/rest-details/rest-details.component';
 // var routes: Routes  = []
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ProductCrudComponent } from './product-crud/component/product-crud/prod
     AppComponent,
     HomeComponent,
     AllResturantsComponent,
-    ProductCrudComponent
+    ProductCrudComponent,
+    RestDetailsComponent
   ],
   imports: [
     BrowserModule,

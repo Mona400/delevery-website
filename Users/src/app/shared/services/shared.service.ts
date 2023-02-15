@@ -9,4 +9,6 @@ export class SharedService {
 
   constructor() { }
 
+  state={};
+
 }

@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import {ResturantServicesService} from '../resturant-services/resturant-services.service'
+import { SharedService } from '../../shared/services/shared.service';
 
 @Component({
   selector: 'app-all-resturants',
   templateUrl: './all-resturants.component.html',
   styleUrls: ['./all-resturants.component.scss']
 })
-export class AllResturantsComponent {
-
-  constructor(public restService:ResturantServicesService){ }
+export class AllResturantsComponent implements OnInit{
+  payload;
+  constructor(public restService:ResturantServicesService , public State:SharedService){ }
   policyOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -35,9 +36,20 @@ export class AllResturantsComponent {
     nav: true
   }
 
-  getAll(){
-    this.restService.GetallRest().subscribe({
+  ngOnInit(): void {
+    this.restService.getAllProducts().subscribe({
       next:(res)=>{
+        this.payload = res
+        this.State.state["commuter"] = res
+
+      }
+    })
+  }
+
+  getAll(){
+    this.restService.getAllProducts().subscribe({
+      next:(res)=>{
+
         console.log(res)
       }
     })

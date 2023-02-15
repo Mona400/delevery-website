@@ -1,0 +1,83 @@
+<div class="container">
+
+  <div class="placeholder-container">
+    <div class="hero_placeholder">
+      <div class="text-center">
+        <img src="{{payload.image}}" class="rounded my-3" width="200px">
+        <h1 >{{payload.title}}</h1>
+        <p>{{payload.speciality}}</p>
+      </div>
+
+      <div class="lower-section ">
+        <h2 class="text-center">Search For Meals That you will like</h2>
+        <div class="search_and_button  text-center w-100 ">
+
+            <input type="text" class="w-80" name="meals"  placeholder="Search For Meals">
+            <button class="btn btn-success">Show Menu</button>
+
+
+        </div>
+          <div class="ratings_and_payments mx-auto d-flex justify-content-around w-50 ">
+              <div class="ratings">
+                Rating
+              </div>
+
+              <div class="reviews">
+                Reviews
+              </div>
+
+              <div class="payments">
+                Payments
+              </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="lower">
+    <section class="container">
+      <p style="font-size: 22px; color: lightcoral;">{{payload.title}} Delivers to You</p>
+      <p>{{payload.description}}</p>
+    </section>
+
+    <section>
+      <p>Best Seller Dishes</p>
+      <br>
+      <div class="dishes d-flex justify-content-around">
+        <p>image#1</p>
+        <p>image#1</p>
+        <p>image#1</p>
+        <p>image#1</p>
+
+      </div>
+    </section>
+
+    <hr>
+
+    <section class="reviews-section">
+
+      <p>{{payload.title}} Reviews ({{payload.reviews.length}})</p>
+
+      <div class="d-flex justify-content-around">
+        <p>very Good</p>
+        <p>very Good</p>
+        <p>very Good</p>
+        <p>very Good</p>
+
+      </div>
+
+      <div class="actual-reviews">
+        <ng-template ngFor let-item [ngForOf]="payload.reviews" let-i="index">
+          <div style="background-color: grey;">
+           <p>{{payload.reviews[i].impression || "Good"}}  {{payload.reviews[i].username}}</p>
+           <p>{{payload.reviews[i].comment}}</p>
+          </div>
+
+        </ng-template>
+      </div>
+
+    </section>
+  </div>
+</div>
