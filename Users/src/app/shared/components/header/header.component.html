@@ -1,0 +1,67 @@
+
+
+
+
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="language">
+          <ul>
+            <li (click)="drop('language')">
+              English<i class="fa fa-caret-down"></i>
+              <div class="dropdown" *ngIf="id === 'language'">
+                <ul>
+                  <li>English</li>
+                  <li>Arabic</li>
+                </ul>
+              </div>
+            </li>
+
+            <li (click)="drop('currency')">
+              USD<i class="fa fa-caret-down"></i>
+              <div class="dropdown" *ngIf="id === 'currency'">
+                <ul>
+                  <li>EUR</li>
+                  <li>LE</li>
+                  <li>GBP</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8" style="text-align: right">
+        <div class="social-menu">
+          <ul>
+            <li routerLink="/home">Home</li>
+            <li routerLink="/product-crud">CRUD</li>
+            <li routerLink="/all-resturants">All Resturants</li>
+            <li routerLink="/products">Products</li>
+
+            <li routerLink="/cart">Cart</li>
+
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <button routerLink="/login" class="login"> Login </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

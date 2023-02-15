@@ -1,0 +1,63 @@
+{
+  "products": [
+    {
+      "id": 3,
+      "productName": "mona@gmail.com",
+      "productTitle": "mona@gmail.com",
+      "oldPrice": "mona@gmail.com",
+      "newPrice": "mona@gmail.com",
+      "description": "mona@gmail.com",
+      "img": ""
+    },
+    {
+      "id": 7,
+      "productName": "",
+      "productTitle": "",
+      "oldPrice": "",
+      "newPrice": "",
+      "description": "",
+      "img": ""
+    },
+    {
+      "id": 8,
+      "productName": "mmmm",
+      "productTitle": "mmmm",
+      "oldPrice": "1700le",
+      "newPrice": "120le",
+      "description": "mnnnnn",
+      "img": ""
+    },
+    {
+      "id": 9,
+      "productName": "mmm",
+      "productTitle": "G@gmail.com",
+      "oldPrice": "G@gmail.com",
+      "newPrice": "G@gmail.com",
+      "description": "G@gmail.com",
+      "img": ""
+    }
+  ],
+  "signup": [
+    {
+      "name": "A",
+      "email": "mona@gmail.com",
+      "mobile": 123,
+      "password": "12334",
+      "id": 1
+    },
+    {
+      "name": "mona",
+      "email": "monasallam400@gmail.com",
+      "mobile": 123,
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "A",
+      "email": "a@gmail.com",
+      "mobile": 123,
+      "password": "123",
+      "id": 3
+    }
+  ]
+}
