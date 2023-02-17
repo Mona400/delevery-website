@@ -15,11 +15,14 @@ import { HomeComponent } from './home/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AllResturantsComponent } from './all-resturants/all-resturants/all-resturants.component';
-import { ProductCrudComponent } from './product-crud/component/product-crud/product-crud.component';
+
 import { LoginComponent } from './login/component/login/login.component';
 import { SignupComponent } from './login/component/signup/signup.component';
-import { ResturantCrudComponent } from './resturant-crud/resturant-crud/resturant-crud.component';
+
 import { CartComponent } from './cart-controller/component/cart/cart.component';
+import { EditProfileComponent } from './edit-profile/edit-profile/edit-profile.component';
+import { LogoutComponent } from './login/component/logout/logout.component';
+import { SubscriptionComponent } from './subscription/subscription/subscription.component';
 // var routes: Routes  = []
 
 @NgModule({
@@ -27,11 +30,14 @@ import { CartComponent } from './cart-controller/component/cart/cart.component';
     AppComponent,
     HomeComponent,
     AllResturantsComponent,
-    ProductCrudComponent,
+
     LoginComponent,
     SignupComponent,
-    ResturantCrudComponent,
+
     CartComponent,
+     EditProfileComponent,
+     LogoutComponent,
+     SubscriptionComponent,
 
   ],
   imports: [

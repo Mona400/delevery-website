@@ -12,23 +12,27 @@ import { AppModule } from "./app.module";
 import { HomeComponent } from "./home/home/home.component";
 import { AllResturantsComponent } from "./all-resturants/all-resturants/all-resturants.component";
 import { FooterComponent } from "./shared/components/footer/footer.component";
-import { ProductCrudComponent } from "./product-crud/component/product-crud/product-crud.component";
+
 import { SignupComponent } from "./login/component/signup/signup.component";
 import { LoginComponent } from "./login/component/login/login.component";
-import { ResturantCrudComponent } from "./resturant-crud/resturant-crud/resturant-crud.component";
+
 import { CartComponent } from "./cart-controller/component/cart/cart.component";
+import { EditProfileComponent } from "./edit-profile/edit-profile/edit-profile.component";
+import { SubscriptionComponent } from "./subscription/subscription/subscription.component";
+import { LogoutComponent } from "./login/component/logout/logout.component";
 var routes: Routes  = [
 
   {path:"login",component:LoginComponent},
   {path:"signup",component:SignupComponent},
       {path:'',redirectTo:'login',pathMatch:"full"},
 
-      {path:"resturant-crud",component:ResturantCrudComponent},
       {path:"cart-controller",component:CartComponent},
-  {path:"product-crud",component:ProductCrudComponent},
-  {path:"all-resturants",component:AllResturantsComponent},
-  {path:"products",component:AllProductsComponent},
 
+  {path:"all-resturants",component:AllResturantsComponent},
+  {path:"subscription",component:SubscriptionComponent},
+  {path:"products",component:AllProductsComponent},
+{path:"edit-profile",component:EditProfileComponent},
+{path:"logout",component:LogoutComponent},
   {path:"home",component:HomeComponent},
   {path:"details/:id",component:ProductDetailsComponent},
   {path:"cart",component:CardComponent},

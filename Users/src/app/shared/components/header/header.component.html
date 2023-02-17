@@ -12,25 +12,14 @@
              User<i class="fa fa-caret-down"></i>
               <div class="dropdown" *ngIf="id === 'language'">
                 <ul>
-                  <li>Subscrabtion</li>
-                  <li>Edit Your profile</li>
-                  <li>LogOut</li>
+                  <li routerLink="subscription">Subscrabtion</li>
+                  <li routerLink="edit-profile">Edit Your profile</li>
+                  <li routerLink="logout">LogOut</li>
                 </ul>
               </div>
             </li>
 
-            <li (click)="drop('currency')">
-             Admin<i class="fa fa-caret-down"></i>
-              <div class="dropdown" *ngIf="id === 'currency'">
-                <ul>
-                  <li routerLink="/resturant-crud">Manage Resturants</li>
-                  <li routerLink="/product-crud">Manage Meals</li>
-                  <li routerLink="/cart-controller">Dashboard</li>
-                  <li>Edit Profile</li>
-                  <li>Log Out</li>
-                </ul>
-              </div>
-            </li>
+
           </ul>
         </div>
       </div>
@@ -38,7 +27,6 @@
         <div class="social-menu">
           <ul>
             <li routerLink="/home" routerLinkActive="active">Home</li>
-            <li routerLink="/product-crud" routerLinkActive="active">CRUD</li>
             <li routerLink="/all-resturants" routerLinkActive="active">All Resturants</li>
             <li routerLink="/products" routerLinkActive="active">Products</li>
 
