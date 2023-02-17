@@ -64,7 +64,8 @@ header{
   }
   .dropdown {
     background: #fff;
-    border: 1px solid rgb(226, 226, 226);
+    border: 1px solid #1a1a1a;
+    color: #000;
     border-radius: 4px;
     position: absolute;
     z-index: 4;
@@ -104,7 +105,7 @@ color: #ff4000;
 
   }
   .social-menu ul li a{
-  color: #777;
+  color: #f5f5f5;
   text-decoration: none;
   transition: 0.3s all ease;
   margin-left: 14px;

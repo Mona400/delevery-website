@@ -15,11 +15,16 @@ import { FooterComponent } from "./shared/components/footer/footer.component";
 import { ProductCrudComponent } from "./product-crud/component/product-crud/product-crud.component";
 import { SignupComponent } from "./login/component/signup/signup.component";
 import { LoginComponent } from "./login/component/login/login.component";
+import { ResturantCrudComponent } from "./resturant-crud/resturant-crud/resturant-crud.component";
+import { CartComponent } from "./cart-controller/component/cart/cart.component";
 var routes: Routes  = [
 
   {path:"login",component:LoginComponent},
   {path:"signup",component:SignupComponent},
       {path:'',redirectTo:'login',pathMatch:"full"},
+
+      {path:"resturant-crud",component:ResturantCrudComponent},
+      {path:"cart-controller",component:CartComponent},
   {path:"product-crud",component:ProductCrudComponent},
   {path:"all-resturants",component:AllResturantsComponent},
   {path:"products",component:AllProductsComponent},

@@ -7,6 +7,7 @@ import { Product } from 'src/app/models/product';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+
   @Input() data!:Product
   @Output() item=new EventEmitter()
   addButton:boolean=false

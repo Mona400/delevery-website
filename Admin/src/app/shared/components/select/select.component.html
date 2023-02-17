@@ -1,8 +1,20 @@
-<label for="" class="my-1">{{title}}</label>
+<!-- <label for="" class="my-1">{{title}}</label>
 <select class="form-control" (change)="detectChanges($event)">
-  <option value="all" *ngIf="all" selected>All</option>
+  <option value="all" selected>All</option>
 
-  <option value="{{ option }}" [selected]="option==select" *ngFor="let option of data">
+  <option value="{{ option }}" *ngFor="let option of data">
     {{ option }}
   </option>
-</select>
+</select> -->
+
+<div class="header">
+  <div class="title">{{title}}</div>
+
+  <select class="form-control" (change)="detectChanges($event)">
+    <option value="all" selected>All</option>
+
+    <option value="{{ option }}" *ngFor="let option of data">
+      {{ option }}
+    </option>
+  </select>
+</div>

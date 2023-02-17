@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+
+        <div class="text-center">
+          <h1>sign up</h1>
+          <strong>sign up anytime!</strong><hr>
+        </div>
+        <form [formGroup]="signupform" (ngSubmit)="signup()">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input type="text"formControlName="name" class="form-control" placeholder="Enter your name" id="exampleInputEmail1" aria-describedby="emailHelp">
+<small *ngIf="signupform.get('name')?.invalid && signupform.get('name')?.touched" class="text-danger">Name is Required</small>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" formControlName="email" placeholder="Enter your email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+<small *ngIf="signupform.get('email')?.invalid && signupform.get('email')?.touched " class="text-danger">Email Is Required</small>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Mobile number</label>
+            <input type="number" formControlName="mobile" class="form-control" placeholder="Enter your Mobile number" id="exampleInputEmail1" aria-describedby="emailHelp">
+<small *ngIf="signupform.get('mobile')?.invalid && signupform.get('mobile')?.touched" class="text-danger">Mobile is required</small>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" formControlName="password" class="form-control" placeholder="Enter your password" id="exampleInputPassword1">
+          <small *ngIf="signupform.get('password')?.invalid && signupform.get('password').touched" class="text-danger">Password is Required</small>
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="signupform.invalid">Sign up</button>
+        </form>
+<a style="color: blue; margin-top: 10px;" routerLink="/login">Already Registed? click to Login</a>
+
+      </div>
+
+    </div>
+  </div>
+</div>

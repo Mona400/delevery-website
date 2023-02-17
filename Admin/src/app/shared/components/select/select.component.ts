@@ -8,8 +8,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class SelectComponent  implements OnInit{
  @Input() title:string="";
  @Input() data:any[]=[]
- @Input() all:boolean=true
- @Input()select=''
  @Output() selectedValue=new EventEmitter()
   ngOnInit(): void {
 

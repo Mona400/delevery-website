@@ -20,6 +20,7 @@ export class AllProductsComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts();
     this.getCategories();
+
   }
   getProducts() {
     this.service.getAllProducts().subscribe(

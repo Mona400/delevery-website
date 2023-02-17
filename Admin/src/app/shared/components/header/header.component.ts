@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  id:any
+  drop(param:any){
+    if(this.id==param){
+      this.id=" "
+    }
+    else{
+      this.id=param;
+    }
 
+  }
 }

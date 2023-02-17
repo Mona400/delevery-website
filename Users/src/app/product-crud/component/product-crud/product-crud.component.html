@@ -15,7 +15,7 @@
   <thead>
 
     <tr>
-      <th scope="col">s.id</th>
+      <!-- <th scope="col">s.id</th> -->
       <th scope="col">s.productName</th>
       <th scope="col">s.productTitle</th>
       <th scope="col">s.oldPrice</th>
@@ -26,7 +26,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let data of allproductdata">
-      <td>{{data.id}}</td>
+      <!-- <td>{{data.id}}</td> -->
       <td>{{data.productName}}</td>
       <td>{{data.productTitle}}</td>
       <td>{{data.oldPrice}}</td>
@@ -51,11 +51,11 @@
       <div class="modal-body">
 
         <form [formGroup]="formValue">
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="exampleInputEmail1">Id</label>
             <input type="number" formControlName="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
           <small *ngIf="formValue.get('id')?.invalid && formValue.get('id')?.touched" class="text-danger">id is Required</small>
-          </div>
+          </div> -->
           <br>
           <div class="form-group">
             <label for="exampleInputEmail1">productName</label>
@@ -87,9 +87,6 @@
             <small *ngIf="formValue.get('description')?.invalid && formValue.get('description')?.touched" class="text-danger">age is Required</small>
           </div>
           <br>
-
-
-
 
         </form>
       </div>

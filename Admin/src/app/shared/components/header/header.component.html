@@ -1,11 +1,66 @@
-<nav>
+
+
+
+
+<header>
   <div class="container">
-    <div class="content">
-      <h2 class="logo">Market</h2>
-      <ul>
-        <li routerLink="/">Products</li>
-        <li routerLink="/cart">Cart</li>
-      </ul>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="language">
+          <ul>
+
+
+            <li (click)="drop('currency')">
+             Admin<i class="fa fa-caret-down"></i>
+              <div class="dropdown" *ngIf="id === 'currency'">
+                <ul>
+                  <li routerLink="/home">Home</li>
+                  <li routerLink="/resturant-crud">Manage Resturants</li>
+                  <li routerLink="/all-resturants">All Resturants</li>
+                  <li routerLink="/product-crud">Manage Meals</li>
+                  <li routerLink="/products">All Meals</li>
+                  <li routerLink="/cart-controller">Manage Orders</li>
+                  <li routerLink="/promotion"> Promotions</li>
+
+                  <li routerLink="/edit-profile" >Edit Profile</li>
+                  <li>Log Out</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8" style="text-align: right">
+        <div class="social-menu">
+          <ul>
+            <!-- <li routerLink="/home" routerLinkActive="active">Home</li>
+            <li routerLink="/product-crud" routerLinkActive="active">CRUD</li>
+            <li routerLink="/all-resturants" routerLinkActive="active">All Resturants</li>
+            <li routerLink="/products" routerLinkActive="active">Products</li> -->
+
+
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <button routerLink="/signup" class="login" routerLinkActive="active"> Register </button>
+              <button routerLink="/login" class="login" routerLinkActive="active"> Login </button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
+</header>

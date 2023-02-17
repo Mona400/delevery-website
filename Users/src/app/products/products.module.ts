@@ -8,6 +8,7 @@ import { SpinnerComponent } from '../shared/components/spinner/spinner.component
 import { SelectComponent } from '../shared/components/select/select.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductComponent } from './components/product/product.component';
+import { ResturantCrudComponent } from '../resturant-crud/resturant-crud/resturant-crud.component';
 
 
 
@@ -16,6 +17,7 @@ import { ProductComponent } from './components/product/product.component';
     AllProductsComponent,
 ProductDetailsComponent,
 ProductComponent,
+
 
 
   ],

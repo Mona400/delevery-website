@@ -71,7 +71,7 @@ color: #eee;
 .prev{
   left: 150px;
   position: absolute;
-  background: #eee;
+  background: #ff4000;
   width: 150px;
   height: 40px;
   border-radius: 22px;
@@ -88,6 +88,8 @@ ul  li{
   list-style-type: none;
 }
  .prev:hover{
-  background: #ff4000;
-  color: #eee;
+  background: #eee;
+  color: #ff4000;
+  border: 1px solid #ff4000;
 }
+

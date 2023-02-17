@@ -9,22 +9,25 @@
         <div class="language">
           <ul>
             <li (click)="drop('language')">
-              English<i class="fa fa-caret-down"></i>
+             User<i class="fa fa-caret-down"></i>
               <div class="dropdown" *ngIf="id === 'language'">
                 <ul>
-                  <li>English</li>
-                  <li>Arabic</li>
+                  <li>Subscrabtion</li>
+                  <li>Edit Your profile</li>
+                  <li>LogOut</li>
                 </ul>
               </div>
             </li>
 
             <li (click)="drop('currency')">
-              USD<i class="fa fa-caret-down"></i>
+             Admin<i class="fa fa-caret-down"></i>
               <div class="dropdown" *ngIf="id === 'currency'">
                 <ul>
-                  <li>EUR</li>
-                  <li>LE</li>
-                  <li>GBP</li>
+                  <li routerLink="/resturant-crud">Manage Resturants</li>
+                  <li routerLink="/product-crud">Manage Meals</li>
+                  <li routerLink="/cart-controller">Dashboard</li>
+                  <li>Edit Profile</li>
+                  <li>Log Out</li>
                 </ul>
               </div>
             </li>
@@ -34,12 +37,12 @@
       <div class="col-md-8" style="text-align: right">
         <div class="social-menu">
           <ul>
-            <li routerLink="/home">Home</li>
-            <li routerLink="/product-crud">CRUD</li>
-            <li routerLink="/all-resturants">All Resturants</li>
-            <li routerLink="/products">Products</li>
+            <li routerLink="/home" routerLinkActive="active">Home</li>
+            <li routerLink="/product-crud" routerLinkActive="active">CRUD</li>
+            <li routerLink="/all-resturants" routerLinkActive="active">All Resturants</li>
+            <li routerLink="/products" routerLinkActive="active">Products</li>
 
-            <li routerLink="/cart">Cart</li>
+            <li routerLink="/cart" routerLinkActive="active">Cart</li>
 
             <li>
               <a href="javascript:void(0)">
@@ -57,7 +60,8 @@
               </a>
             </li>
             <li>
-              <button routerLink="/login" class="login"> Login </button>
+              <button routerLink="/signup" class="login" routerLinkActive="active"> Register </button>
+              <button routerLink="/login" class="login" routerLinkActive="active"> Login </button>
             </li>
           </ul>
         </div>

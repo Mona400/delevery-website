@@ -3,7 +3,7 @@
   <img src="{{ data.image }}" alt="" />
   <div class="body">
     <h4>{{ data.title }}</h4>
-    <p>{{ data.description }}</p>
+    <!-- <p>{{ data.description }}</p> -->
   </div>
 </div>
 
@@ -15,6 +15,14 @@
       <input type="number" class="form-control" [(ngModel)]="amount">
       <button class="btn btn-danger" (click)="add();addButton=false" >Add</button>
     </div>
-    <span>{{ data.price }} L.E</span>
+
   </div>
+  <div class="price">
+    <p>
+      <span class="money">{{ data.price }} L.E</span
+      ><span class="old-price">$80.00</span>
+    </p>
+  </div>
+
 </div>
+

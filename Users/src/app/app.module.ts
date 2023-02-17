@@ -18,6 +18,8 @@ import { AllResturantsComponent } from './all-resturants/all-resturants/all-rest
 import { ProductCrudComponent } from './product-crud/component/product-crud/product-crud.component';
 import { LoginComponent } from './login/component/login/login.component';
 import { SignupComponent } from './login/component/signup/signup.component';
+import { ResturantCrudComponent } from './resturant-crud/resturant-crud/resturant-crud.component';
+import { CartComponent } from './cart-controller/component/cart/cart.component';
 // var routes: Routes  = []
 
 @NgModule({
@@ -27,7 +29,10 @@ import { SignupComponent } from './login/component/signup/signup.component';
     AllResturantsComponent,
     ProductCrudComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ResturantCrudComponent,
+    CartComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,7 @@ import { SignupComponent } from './login/component/signup/signup.component';
     //  RouterModule,
      FormsModule,
     //  SpinnerComponent
-    //  HttpClientModule,
+     HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
