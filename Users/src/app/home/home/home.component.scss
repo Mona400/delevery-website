@@ -15,7 +15,7 @@
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 2fr;
-  margin-top:50px;
+  //margin-top:50px;
 
 
 }
@@ -304,4 +304,89 @@ right: 0;
   }
   .main-button i{
     color: #fff;
+  }
+
+  .firstSec{
+
+
+
+    .my-container{
+      div:first-child{
+        padding-left: 5vw;
+        h1{
+          line-height: 5rem;
+          font-size: 2.5rem;
+          width: 37vw;
+        }
+      }
+
+      width: 100%;
+    }
+
+  }
+
+
+
+
+  .SecondSec{
+
+    .container{
+
+      justify-content: space-around;
+      align-items: center;
+      gap: 10vw;
+
+      img{
+        width: 6rem;
+      }
+
+    }
+    margin-top: 5vh;
+    display: flex;
+    background-color: rgb(246, 246, 246);
+    padding-block: 24vh;
+    gap: 11vw;
+    margin-block: 6vh;
+
+  }
+
+
+  .RestSection{
+
+    .RestCard{
+      margin: auto;
+      row-gap: 4vh;
+    }
+    .firstSection{
+      width: 93%;
+      margin: auto;
+    }
+  }
+
+
+  @media all and (max-width:600px) {
+      .best-selling-container{
+        padding-inline: 0;
+        & > div{
+          width: 100%;
+          margin-inline: 0;
+
+        }
+      }
+
+    .my-container{
+      text-align: center;
+      padding-block: 10vh;
+      row-gap:2rem ;
+      div:first-child{
+
+        h1{
+          line-height: normal !important;
+          width: 100% !important;
+        }
+      }
+
+      width: 100%;
+    }
+
   }

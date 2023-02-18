@@ -11,4 +11,6 @@ export class SharedService {
 
   state={};
 
+  cart={}
+
 }

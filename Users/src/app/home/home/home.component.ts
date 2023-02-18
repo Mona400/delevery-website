@@ -1,12 +1,27 @@
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
+import { ResturantServicesService } from './../../all-resturants/resturant-services/resturant-services.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+
+  payload;
+
+  constructor(public restSer:ResturantServicesService){
+
+
+    restSer.getAllRestaurants().subscribe({
+      next:(res:[])=>{
+        this.payload = res.slice(0,4)
+      }
+    })
+  }
+
   bannerSlider: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -49,6 +64,8 @@ export class HomeComponent {
       this.days="Offer Is Expired"
     }
   },1000)
+
+
 
 }
 

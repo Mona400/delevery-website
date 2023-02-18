@@ -3,32 +3,41 @@
   <div class="placeholder-container">
     <div class="hero_placeholder">
       <div class="text-center">
-        <img src="{{payload.image}}" class="rounded my-3" width="200px">
-        <h1 >{{payload.title}}</h1>
-        <p>{{payload.speciality}}</p>
+        <img src="{{payload?.image}}" class="rounded my-3" width="200px">
+        <h1 >{{payload?.title}}</h1>
+        <p>{{payload?.speciality}}</p>
+
       </div>
 
       <div class="lower-section ">
         <h2 class="text-center">Search For Meals That you will like</h2>
         <div class="search_and_button  text-center w-100 ">
 
-            <input type="text" class="w-80" name="meals"  placeholder="Search For Meals">
-            <button class="btn btn-success">Show Menu</button>
+            <!-- <input type="text" class="w-80" name="meals"  placeholder="Search For Meals"> -->
+              <mat-form-field class="example-full-width">
+                <mat-label>Search Something</mat-label>
+                <mat-icon class="text-dark" matPrefix>search</mat-icon>
+                <input type="text" matInput placeholder="Type something..">
+              </mat-form-field>
+
+
+
+            <button routerLink="/restaurant/{{payload?._id}}/meals" style="height: 6vh;" class="btn btn-success">Show Menu</button>
 
 
         </div>
           <div class="ratings_and_payments mx-auto d-flex justify-content-around w-50 ">
               <div class="ratings">
-                Rating
+                <img src="../../../assets/ratings.png" width="30px" style="margin-right: .2vw;">  <span>{{payload?.rating.toFixed(2)}}</span>   Rating
               </div>
 
               <div class="reviews">
-                Reviews
+                <img src="../../../assets/reviews.png" width="30px" alt="">   {{payload?.reviews.length}} Reviews
               </div>
 
-              <div class="payments">
+              <!-- <div class="payments">
                 Payments
-              </div>
+              </div> -->
           </div>
       </div>
 
@@ -38,18 +47,32 @@
 
   <div class="lower">
     <section class="container">
-      <p style="font-size: 22px; color: lightcoral;">{{payload.title}} Delivers to You</p>
-      <p>{{payload.description}}</p>
+      <p style="font-size: 22px; color: lightcoral;">{{payload?.title}} Delivers to You</p>
+      <p>{{payload?.description}}</p>
     </section>
 
     <section>
       <p>Best Seller Dishes</p>
       <br>
       <div class="dishes d-flex justify-content-around">
-        <p>image#1</p>
-        <p>image#1</p>
-        <p>image#1</p>
-        <p>image#1</p>
+        <div class="row">
+          <ng-template ngFor let-item [ngForOf]="payload?.meals" let-i="index">
+            <div class="col-md-6 col-lg-3 col-sm-12">
+              <div class="card" routerLink="/restaurant/{{payload?._id}}/meals/{{payload?.meals[i]._id}}">
+
+                <img src={{payload?.meals[i].image}} class="card-img-top" width="15rem" style="aspect-ratio: 1/1;" alt="..." >
+                <div class="card-body">
+                <h5 class="card-title text-center">{{payload?.meals[i].title}}</h5>
+                <p class="card-text">{{payload?.meals[i].description.substring(0,50)}}..</p>
+                </div>
+              </div>
+            </div>
+
+
+          </ng-template>
+        </div>
+
+
 
       </div>
     </section>
@@ -58,21 +81,28 @@
 
     <section class="reviews-section">
 
-      <p>{{payload.title}} Reviews ({{payload.reviews.length}})</p>
+      <p>{{payload?.title}} Reviews ({{payload?.reviews.length}})</p>
 
       <div class="d-flex justify-content-around">
-        <p>very Good</p>
-        <p>very Good</p>
-        <p>very Good</p>
-        <p>very Good</p>
-
+       <button (click)="AddingReviews()" class="btn btn-primary" >Add a Review</button>
       </div>
 
-      <div class="actual-reviews">
-        <ng-template ngFor let-item [ngForOf]="payload.reviews" let-i="index">
-          <div style="background-color: grey;">
-           <p>{{payload.reviews[i].impression || "Good"}}  {{payload.reviews[i].username}}</p>
-           <p>{{payload.reviews[i].comment}}</p>
+      <div class="actual-reviews" >
+        <div *ngIf="review_flag" class="review-container">
+          <p class="review_title"> <img src="../../../assets/good.png" width="20px" style="border-radius: 50%;">  <span> {{user.username}}</span> </p>
+          <mat-form-field class="example-full-width w-80">
+            <mat-label>Leave a comment</mat-label>
+            <textarea [(ngModel)]="comment" matInput placeholder="Ex. It makes me feel..."></textarea>
+          </mat-form-field>
+          <button (click)="submitMe()" class="btn btn-success mx-2">Submit</button>
+
+         </div>
+
+        <ng-template ngFor let-item [ngForOf]="payload?.reviews" let-i="index">
+          <div class="review-container">
+           <p class="review_title"> <img src="../../../assets/{{payload?.reviews[i].impression}}.png" width="20px" style="border-radius: 50%;">  <span> {{payload?.reviews[i].username}}</span> </p>
+           <p class="px-5">{{payload?.reviews[i].comment}}</p>
+
           </div>
 
         </ng-template>

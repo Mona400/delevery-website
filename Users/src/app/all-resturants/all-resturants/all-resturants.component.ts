@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import {ResturantServicesService} from '../resturant-services/resturant-services.service'
 import { SharedService } from '../../shared/services/shared.service';
+import slugify from 'slugify';
+
+import { ActivatedRoute , Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-resturants',
@@ -10,7 +13,13 @@ import { SharedService } from '../../shared/services/shared.service';
 })
 export class AllResturantsComponent implements OnInit{
   payload;
-  constructor(public restService:ResturantServicesService , public State:SharedService){ }
+  search_text=""
+  constructor(public restService:ResturantServicesService , public State:SharedService , private _router:Router , public Current_route:ActivatedRoute){
+
+
+
+
+   }
   policyOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -37,7 +46,12 @@ export class AllResturantsComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.restService.getAllProducts().subscribe({
+    let query_search = this.Current_route.snapshot.queryParams['search']
+
+    let query = query_search ? this.restService.SearchBySlug(query_search)  : this.restService.getAllRestaurants()
+
+
+    query.subscribe({
       next:(res)=>{
         this.payload = res
         this.State.state["commuter"] = res
@@ -46,12 +60,5 @@ export class AllResturantsComponent implements OnInit{
     })
   }
 
-  getAll(){
-    this.restService.getAllProducts().subscribe({
-      next:(res)=>{
 
-        console.log(res)
-      }
-    })
-  }
 }

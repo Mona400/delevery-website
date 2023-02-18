@@ -1,34 +1,121 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { ActivatedRoute } from '@angular/router';
+// import { NotificationsService } from 'angular2-notifications';
+import { FormsModule } from "@angular/forms";
+
+
+import { ResturantServicesService } from './../resturant-services/resturant-services.service';
+
+import AWN from "awesome-notifications";
+import * as Toastify from 'toastify-js';
+
 
 @Component({
   selector: 'app-rest-details',
   templateUrl: './rest-details.component.html',
   styleUrls: ['./rest-details.component.scss']
 })
-export class RestDetailsComponent implements OnInit {
+export class RestDetailsComponent  {
+  comment:any=""
+  review_flag:boolean = false;
+  user = {
+    _id: "63e20ea4955f761937b0e749",
+    firstName: "Precious",
+    lastName: "Langworth",
+    username: "mahmoudv2020",
+    type: "user",
+}
+  payload:any;
+  // payload={
+  //   branches : ['Camarillo70975 Mandy Green'],
+  //   description: "Recusandae quisquam beatae adipisci animi vitae quasi.\nSoluta debitis blanditiis repudiandae ut ex earum culpa voluptates nam.",
+  //   image: "https://loremflickr.com/640/480",
+  //   meals: ['63e253ce76eaa2ba94d3f515'],
+  //   rating: 1.291,
+  //   reviews: [],
+  //   slug: "Northeast-Congo-Lion",
+  //   social_media: {facebook: 'https://www.facebook.com/', twitter: 'https://twitter.com/home'},
+  //   speciality: "saepe architecto voluptatibus inventore",
+  //   title: "Northeast Congo Lion",
+  //   _id: "63ec00c2fe1a6e27638c45f2"
+  // }
+  constructor( public State:SharedService , public avtivRoute:ActivatedRoute , public RestService:ResturantServicesService){
+    const id = avtivRoute.snapshot.params["id"]
 
-  payload={
-    branches : ['Camarillo70975 Mandy Green'],
-    description: "Recusandae quisquam beatae adipisci animi vitae quasi.\nSoluta debitis blanditiis repudiandae ut ex earum culpa voluptates nam.",
-    image: "https://loremflickr.com/640/480",
-    meals: ['63e253ce76eaa2ba94d3f515'],
-    rating: 1.291,
-    reviews: [],
-    slug: "Northeast-Congo-Lion",
-    social_media: {facebook: 'https://www.facebook.com/', twitter: 'https://twitter.com/home'},
-    speciality: "saepe architecto voluptatibus inventore",
-    title: "Northeast Congo Lion",
-    _id: "63ec00c2fe1a6e27638c45f2"
+    RestService.getRestaurantById(id).subscribe({
+     next:(res)=>{
+       this.payload = res;
+
+       RestService.getRestaurantReviews(id).subscribe({
+        next:(res)=>{
+          this.payload.reviews = res
+          console.log(res)
+        }
+       })
+     }
+   })
+
+
+
   }
-  constructor(public State:SharedService , public avtivRoute:ActivatedRoute){}
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
-  ngOnInit(): void {
-    const slug = this.avtivRoute.snapshot.params["slug"]
+  AddingReviews(){
+    Toastify({
 
-    //this.payload = this.State.state["commuter"].find(e => e.slug == slug)
-    console.log(this.payload)
+      text: "You Need To Be Logged In",
+      duration: 3000,
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "center", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "red",
+      },
+
+      }).showToast();
+    this.review_flag=true
+
+
+
+
   }
+
+  submitMe(){
+
+    let payload = {
+      userID: this.user['_id'],
+      username:this.user['username'],
+      comment: this.comment,
+      impression:'good',
+      restaurantId: this.payload['_id'],
+    }
+    this.RestService.PostReview(this.payload['_id'],this.user['_id'] , payload)
+    .subscribe({next:()=>{
+      Toastify({
+
+        text: "Comment Added Successfully",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "lightgreen",
+        },
+
+        }).showToast();
+      this.payload.reviews.push(payload)
+    }})
+
+
+
+  }
+
 
 }

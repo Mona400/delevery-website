@@ -24,7 +24,7 @@ body{
 
 }
 *{
-  font-family: cursive;
+  font-family: inherit;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -135,3 +135,6 @@ transform: translate(-50%,-50%);
   object-fit: contain;
   width: 100%;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

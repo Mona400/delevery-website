@@ -1,6 +1,6 @@
 
 .header{
-  margin-block: 10vh;
+  padding-block: 4vh;
   text-align: right;
   position: relative;
 }
@@ -101,9 +101,11 @@ ul  li{
 }
 
 .container{
-  border: 1px solid black;
+
   box-shadow: 0 0 13px 1px gray;
   padding-inline: 2vw;
+  padding-bottom: 2vh;
+  margin-bottom: 2vh;
 }
 
 

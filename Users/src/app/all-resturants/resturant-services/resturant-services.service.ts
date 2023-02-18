@@ -8,17 +8,26 @@ import { environment } from 'src/environments/environment';
 export class ResturantServicesService {
 
   constructor(private http:HttpClient) { }
+   base = environment.baseApi + 'restaurants'
+  getAllRestaurants() {
+    return this.http.get(this.base);
+  }
+  SearchBySlug(slug:string) {
+    return this.http.get(this.base +'?search='+slug);
+  }
 
-  getAllProducts() {
-    return this.http.get(environment.baseApi + 'restaurants');
-  }
-  getAllCategories() {
-    return this.http.get(environment.baseApi + 'restaurants/categories');
-  }
   getProductByCategory(keyword:string) {
-    return this.http.get(environment.baseApi + 'restaurants/category/'+keyword);
+    return this.http.get(this.base + '/category/'+keyword);
   }
-  getProductById(id:any) {
-    return this.http.get(environment.baseApi + 'restaurants/'+id);
+  getRestaurantById(id:any) {
+    return this.http.get(this.base+'/'+id);
+  }
+
+  getRestaurantReviews(id:any) {
+    return this.http.get(this.base+'/'+id+'/reviews');
+  }
+
+  PostReview(Rest_id:string , user_id:any,payload:any){
+    return this.http.post(this.base + `/${Rest_id}/users/${user_id}/reviews`,payload)
   }
 }

@@ -13,13 +13,14 @@
   <div class="header">
     <h1 class="title">All Restaurants</h1>
 
-    <input class="search" type="search" placeholder="search restaurants...!" ><i class="fa fa-search"></i>
+    <input class="search" type="search" [(ngModel)]="search_text" placeholder="search restaurants...!" > <a [routerLink]="['/all-resturants']" [queryParams]="{ search: search_text }" ><i class="fa fa-search text-dark"></i></a>
   </div>
   <div class="row g-5" >
 
     <ng-template ngFor let-item [ngForOf]="payload" let-i="index">
       <div class="mycol col-sm-12 col-md-4 col-lg-3">
-        <div class="card" routerLink="/restaurant/{{payload[i].slug}}">
+        <div data-aos="fade-up" data-aos-duration="200"  data-aos-easing="linear" class="card" routerLink="/restaurant/{{payload[i]._id}}">
+
           <img src={{payload[i].image}} class="card-img-top" width="15rem" style="aspect-ratio: 1/1;" alt="..." >
           <div class="card-body">
           <h5 class="card-title text-center">{{payload[i].title}}</h5>
