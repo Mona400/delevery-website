@@ -13,7 +13,7 @@
   <div class="header">
     <h1 class="title">All Restaurants</h1>
 
-    <input class="search" type="search" [(ngModel)]="search_text" placeholder="search restaurants...!" > <a [routerLink]="['/all-resturants']" [queryParams]="{ search: search_text }" ><i class="fa fa-search text-dark"></i></a>
+    <input class="search" type="search" (input)="filterArr()" [(ngModel)]="search_text" placeholder="search restaurants...!" > <a [routerLink]="['/all-resturants']" [queryParams]="{ search: search_text }" ><i class="fa fa-search text-dark"></i></a>
   </div>
   <div class="row g-5" >
 

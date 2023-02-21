@@ -1,0 +1,99 @@
+<div style="height: 100vh;">
+  <table class="table align-middle mb-0 bg-white table-hover ">
+    <thead class="bg-light">
+      <tr>
+        <th>Restaurant Name</th>
+        <th>Start time</th>
+        <th>Renew time</th>
+        <th>Status</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sub of payload">
+
+        <td>
+          <div class="d-flex align-items-center">
+            <img
+                src="{{sub.restaurantImg}}"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{sub.restaurantName}}</p>
+            </div>
+          </div>
+        </td>
+
+        <td>
+          <p class="fw-normal mb-1">{{sub.createdAt}}</p>
+        </td>
+
+        <td>
+          <p class="fw-normal mb-1">{{sub.ExpirationDate}}</p>
+        </td>
+        <td>
+          <span  [ngClass]="{'badge-success': sub.substate=='active', 'badge-alert': sub.substate=='expired', 'badge-secondary': sub.substate=='pending'}" style="text-transform: capitalize;" class="badge fs-5 rounded-pill d-inline">{{sub.substate}}</span>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{sub.monthly_price}} EGP</p>
+        </td>
+
+        <td class="actions">
+          <div class="d-flex">
+            <div class="example-button-container">
+              <button data-toggle="modal" (click)="setSelected(sub)" data-target="#exampleModalCenter2" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                Edit
+              </button>
+            </div>
+            <div class="example-button-container">
+              <button (click)="deleteSub(sub._id)" mat-fab color="warn" aria-label="Example icon button with a delete icon">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="lunch">
+          <h2 class="text-center">Arrival Date</h2>
+          <igx-time-picker
+            #timePicker
+            [(ngModel)]="date[2]"
+            [mode]="mode"
+            [spinLoop]='false'
+            [inputFormat]="format">
+                <label igxLabel>Time</label>
+            </igx-time-picker>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" (click)="updateSub()" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

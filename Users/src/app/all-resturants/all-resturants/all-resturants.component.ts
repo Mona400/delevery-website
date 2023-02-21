@@ -45,6 +45,10 @@ export class AllResturantsComponent implements OnInit{
     nav: true
   }
 
+  filterArr(){
+    console.log("asdasd")
+    this.payload = this.payload.filter(res => res.title != this.search_text)
+  }
   ngOnInit(): void {
     let query_search = this.Current_route.snapshot.queryParams['search']
 

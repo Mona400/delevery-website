@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import swiper from 'swiper';
 
 import { ResturantServicesService } from './../../all-resturants/resturant-services/resturant-services.service';
 
@@ -8,12 +9,25 @@ import { ResturantServicesService } from './../../all-resturants/resturant-servi
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent  {
 
   payload;
+  slides: any[] = new Array(3).fill({
+    id: 0,
+    src: '../../../assets/2.jpg',
+    title: 'DELECIOUS FOOD SYSTEM',
 
+    subtitle: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+  });
   constructor(public restSer:ResturantServicesService){
 
+    // var swiper = new swiper(".mySwiper", {
+    //   spaceBetween: 30,
+    //   pagination: {
+    //     el: ".swiper-pagination",
+    //     clickable: true,
+    //   },
+    // });
 
     restSer.getAllRestaurants().subscribe({
       next:(res:[])=>{
@@ -21,6 +35,16 @@ export class HomeComponent {
       }
     })
   }
+  // ngOnInit(): void {
+  //   this.slides[0] = {
+  //     id: 0,
+  //     src: '../../../assets/2.jpg',
+  //     title: 'DELECIOUS FOOD SYSTEM',
+
+  //     subtitle: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+  //   };
+
+  // }
 
   bannerSlider: OwlOptions = {
     loop: true,

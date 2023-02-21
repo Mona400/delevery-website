@@ -7,6 +7,7 @@
   }
 }
 
+
 .meals-section{
 
   margin-block: 8vh;
@@ -31,7 +32,7 @@
       top: 88%;
       scale: 0;
       transition: 0.5s all;
-      color: green;
+      color: #ff4000 ;
       border-radius: 50%;
     }
 
@@ -93,8 +94,8 @@ span.intro{
   }
 
   .menu .nav-link.active {
-    color: red !important;
-    border-color: red !important;
+    color: #ff4000 !important;
+    border-color: #ff4000 !important;
 }
 
   .nav-tabs{
@@ -115,5 +116,19 @@ span.intro{
   }
   .buttons{
     gap: 1;
+  }
+}
+
+.header-title {
+  color: #ff4000;
+}
+.menu_changer {
+  font-size: 24px;
+  &:hover{
+    a{
+      color: #ff4000;
+      border-color: #ff4000;
+    }
+
   }
 }

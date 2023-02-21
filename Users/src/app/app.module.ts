@@ -1,43 +1,56 @@
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
-// import { SimpleNotificationsModule } from 'angular2-notifications';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
-import {MatFormFieldModule} from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { CarouselModule } from '@coreui/angular';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {
+	IgxTimePickerModule,
+	IgxInputGroupModule,
+	IgxIconModule
+ } from "igniteui-angular";
 import { ProductsModule } from './products/products.module';
 import { CardsModule } from './cards/cards.module';
 import { HomeComponent } from './home/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CarouselModule } from 'ngx-owl-carousel-o';
+// import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AllResturantsComponent } from './all-resturants/all-resturants/all-resturants.component';
 import { ProductCrudComponent } from './product-crud/component/product-crud/product-crud.component';
 import { RestDetailsComponent } from './all-resturants/rest-details/rest-details.component';
 import { MealsComponent } from './all-resturants/meals/meals.component';
+import {CartComponent} from './Alyaa/components/cart/cart.component'
+import { SubsComponent } from './profile/components/subs/subs.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // var routes: Routes  = []
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CartComponent,
     AllResturantsComponent,
     ProductCrudComponent,
     RestDetailsComponent,
-    MealsComponent
+    MealsComponent,
+    SubsComponent,
+
   ],
   imports: [
     BrowserModule,
     MatFormFieldModule,
+    MatButtonModule,
     MatIconModule,
+    IgxTimePickerModule,
+	IgxInputGroupModule,
+	IgxIconModule,
+
     MatInputModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -58,12 +71,12 @@ import { MealsComponent } from './all-resturants/meals/meals.component';
     ReactiveFormsModule,
     //  HttpClientModule,
     //  RouterModule,
-     FormsModule,
-    //  SpinnerComponent
-    //  HttpClientModule,
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+}

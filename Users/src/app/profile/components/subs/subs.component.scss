@@ -1,0 +1,17 @@
+@import '../../../../../node_modules/mdb-ui-kit/css/mdb.min.css';
+
+
+table{
+  margin-top: 6vh;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 70px;
+}
+
+
+igx-time-picker {
+  width: 400px;
+}

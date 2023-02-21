@@ -8,7 +8,7 @@
           <img src="{{payload?.rest.image}}" width="70%" alt="">
         </div>
 
-        <div class="second-half col-lg-8 col-md-8 col-sm-12">
+        <div  *ngIf="payload" class="second-half col-lg-8 col-md-8 col-sm-12">
           <h1 class="fs-3 text-uppercase font-weight-bold">{{payload?.rest.title}}</h1>
           <!-- <p *ngIf="payload.rest.branches[0]" class="text-muted" >{{payload?.rest?.branches[0]}}</p> -->
           <p > <span class="intro">Spatiality : </span> {{payload?.rest?.speciality}}</p>
@@ -29,18 +29,18 @@
       </div> -->
       <ul class="nav menu nav-tabs d-flex justify-content-center" (click)="category_click($event)">
 
-        <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
+        <li class="menu_changer nav-item">
+          <a class="  nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
             <h4>Breakfast</h4>
           </a><!-- End tab nav item -->
 
-        <li class="nav-item">
+        <li class=" menu_changer  nav-item">
           <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
             <h4>Lunch</h4>
           </a>
         </li><!-- End tab nav item -->
 
-        <li class="nav-item">
+        <li class="menu_changer  nav-item">
           <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
             <h4>Dinner</h4>
           </a>
@@ -51,7 +51,7 @@
       <div class="text-center">
         <p class="mt-5 text-uppercase">Menu</p>
 
-        <h3 class="text-capitalize text-danger fw-bold fs-1">{{selected_menu}}</h3>
+        <h3 class=" header-title text-capitalize  fw-bold fs-1">{{selected_menu}}</h3>
       </div>
 
 

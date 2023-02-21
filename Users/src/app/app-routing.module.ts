@@ -15,6 +15,8 @@ import { FooterComponent } from "./shared/components/footer/footer.component";
 import { ProductCrudComponent } from "./product-crud/component/product-crud/product-crud.component";
 import { RestDetailsComponent } from "./all-resturants/rest-details/rest-details.component";
 import { MealsComponent } from "./all-resturants/meals/meals.component";
+import { SubsComponent } from "./profile/components/subs/subs.component";
+import { CartComponent } from "./Alyaa/components/cart/cart.component";
 var routes: Routes  = [
   {path:"product-crud",component:ProductCrudComponent},
   {path:"all-resturants",component:AllResturantsComponent},
@@ -23,7 +25,8 @@ var routes: Routes  = [
   {path:"restaurant/:id/meals",component:MealsComponent},
   {path:"home",component:HomeComponent},
   {path:"details/:id",component:ProductDetailsComponent},
-  {path:"cart",component:CardComponent},
+  {path:"cart",component:CartComponent},
+  {path:"users/subs",component:SubsComponent},
   {path:"**",redirectTo:"home" ,pathMatch:"full"},
 
 ]
