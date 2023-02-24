@@ -25,6 +25,9 @@ export class HeaderComponent {
   }
   auth_flag = this.sh.my_checkAuth()
   id:any
+  logout(){
+    localStorage.setItem("Loggedin","false")
+  }
   drop(param:any){
     if(this.id==param){
       this.id=" "

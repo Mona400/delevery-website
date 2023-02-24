@@ -2,27 +2,32 @@
 
   <div class="placeholder-container">
     <div class="hero_placeholder">
-      <div class="text-center">
-        <img src="{{payload?.image}}" class="rounded my-3" width="200px">
-        <h1 >{{payload?.title}}</h1>
-        <p>{{payload?.speciality}}</p>
+      <img src="{{payload?.image}}" class="rounded my-3 new-background" width="200px">
 
-      </div>
 
       <div class="lower-section ">
-        <h2 class="text-center">Search For Meals That you will like</h2>
+        <div class="text-center">
+          <!-- <img src="{{payload?.image}}" class="rounded my-3" width="200px"> -->
+          <h1 style="font-size: 2rem;
+          padding-block: 4vh;
+          font-weight: bold;" >{{payload?.title}}</h1>
+          <p style="    font-size: 1.5rem;
+          padding-bottom: 2vh;">{{payload?.speciality}}</p>
+
+        </div>
+        <h2 class="text-center fs-2">Search For Meals That you will like</h2>
         <div class="search_and_button  text-center w-100 ">
 
-            <!-- <input type="text" class="w-80" name="meals"  placeholder="Search For Meals"> -->
+            <!-- <input type="text" class="w-80" name="meals"  placeholder="Search For Meals">
               <mat-form-field class="example-full-width">
                 <mat-label>Search Something</mat-label>
                 <mat-icon class="text-dark" matPrefix>search</mat-icon>
                 <input type="text" matInput placeholder="Type something..">
               </mat-form-field>
+ -->
 
 
-
-            <button routerLink="/restaurant/{{payload?._id}}/meals" style="height: 6vh;" class="btn btn-success">Show Menu</button>
+            <button routerLink="/restaurant/{{payload?._id}}/meals" class="show_btn" >Show Menu</button>
 
 
         </div>

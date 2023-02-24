@@ -17,6 +17,8 @@ import { RestDetailsComponent } from "./all-resturants/rest-details/rest-details
 import { MealsComponent } from "./all-resturants/meals/meals.component";
 import { SubsComponent } from "./profile/components/subs/subs.component";
 import { CartComponent } from "./Alyaa/components/cart/cart.component";
+import { LoginComponent } from "./hossam/login/login/login.component";
+import { SignUpComponent } from "./hossam/sign-up/sign-up.component";
 var routes: Routes  = [
   {path:"product-crud",component:ProductCrudComponent},
   {path:"all-resturants",component:AllResturantsComponent},
@@ -27,6 +29,8 @@ var routes: Routes  = [
   {path:"details/:id",component:ProductDetailsComponent},
   {path:"cart",component:CartComponent},
   {path:"users/subs",component:SubsComponent},
+  {path:"login",component:LoginComponent},
+  {path:"sign-up",component:SignUpComponent},
   {path:"**",redirectTo:"home" ,pathMatch:"full"},
 
 ]

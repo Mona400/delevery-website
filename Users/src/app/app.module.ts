@@ -3,6 +3,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -28,6 +29,10 @@ import { MealsComponent } from './all-resturants/meals/meals.component';
 import {CartComponent} from './Alyaa/components/cart/cart.component'
 import { SubsComponent } from './profile/components/subs/subs.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { LoginComponent } from './hossam/login/login/login.component';
+import { SignUpComponent } from './hossam/sign-up/sign-up.component';
+
+
 // var routes: Routes  = []
 
 @NgModule({
@@ -38,12 +43,15 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AllResturantsComponent,
     ProductCrudComponent,
     RestDetailsComponent,
+    LoginComponent,
     MealsComponent,
     SubsComponent,
+    SignUpComponent
 
   ],
   imports: [
-    BrowserModule,
+
+  BrowserModule,
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
@@ -63,6 +71,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     // }}),
     ProductsModule,
     CardsModule,
+    MatProgressSpinnerModule,
     SharedModule,
     CommonModule,
     BrowserModule,

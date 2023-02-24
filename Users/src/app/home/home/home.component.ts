@@ -12,13 +12,25 @@ import { ResturantServicesService } from './../../all-resturants/resturant-servi
 export class HomeComponent  {
 
   payload;
-  slides: any[] = new Array(3).fill({
+  slides: any[] = [
+  {
     id: 0,
-    src: '../../../assets/2.jpg',
+    src: '../../../assets/photo-1612929633738-8fe44f7ec841.png',
     title: 'DELECIOUS FOOD SYSTEM',
 
     subtitle: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
-  });
+  }
+,
+{
+  id: 0,
+  src: '../../../assets/4749627-ai (2).png',
+  title: 'DELECIOUS FOOD SYSTEM',
+
+  subtitle: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+}
+
+
+];
   constructor(public restSer:ResturantServicesService){
 
     // var swiper = new swiper(".mySwiper", {

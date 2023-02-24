@@ -20,9 +20,13 @@
 </section> -->
 
 
-<section class="= h-custom" style="background-color: #eee;">
-  <div class="container mx-auto  py-5">
-    <div class="row d-flex justify-content-center align-items-center ">
+<section class=" h-custom" style="background-color: #eee;">
+
+
+  <div *ngIf="!loading_stating; else loading_blOCK" class="container mx-auto  py-5">
+
+
+    <div  *ngIf=" ( cart_payload.length !== 0); else elseBlock"  class="row d-flex justify-content-center align-items-center ">
       <div class="col">
         <div class="card shopping-cart" style="border-radius: 15px;">
           <div class="card-body text-black">
@@ -51,6 +55,7 @@
                           #timePicker
                           [(ngModel)]="meal.Date"
                           [spinLoop]='false'
+                          value="16:00:00"
                           >
                               <label igxLabel>Time</label>
                           </igx-time-picker>
@@ -63,7 +68,6 @@
 
 
 
-
                 <hr class="mb-4" style="height: 2px; background-color: #1266f1; opacity: 1;">
 
                 <div class="d-flex justify-content-between px-x">
@@ -72,7 +76,7 @@
                 </div>
                 <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #e1f5fe;">
                   <h5 class="fw-bold mb-0">Total:</h5>
-                  <h5 class="fw-bold mb-0">2261$</h5>
+                  <h5 class="fw-bold mb-0">{{(total_price - 95).toFixed(2)}}$</h5>
                 </div>
 
               </div>
@@ -127,5 +131,18 @@
         </div>
       </div>
     </div>
+
+    <ng-template #elseBlock>
+      <img style="width: 100%;" src="../../../../assets/empty.png" alt="">
+    </ng-template>
   </div>
+
+  <ng-template #loading_blOCK>
+    <div style="height: 100vh;" >
+      <mat-spinner color="#ff4000" style="    width: 100px;
+          height: 100px;
+      transform: translate(50vw, 50vh);"></mat-spinner>
+    </div>
+  </ng-template>
+
 </section>

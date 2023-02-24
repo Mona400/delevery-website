@@ -13,6 +13,7 @@ import { ActivatedRoute , Router } from '@angular/router';
 })
 export class AllResturantsComponent implements OnInit{
   payload;
+  loading_state = true
   search_text=""
   constructor(public restService:ResturantServicesService , public State:SharedService , private _router:Router , public Current_route:ActivatedRoute){
 
@@ -59,7 +60,7 @@ export class AllResturantsComponent implements OnInit{
       next:(res)=>{
         this.payload = res
         this.State.state["commuter"] = res
-
+        this.loading_state = false
       }
     })
   }

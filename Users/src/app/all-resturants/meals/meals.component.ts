@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , OnChanges, SimpleChanges } from '@angular/core';
 import { MealsServicesService } from './../resturant-services/meals-services.service';
 import { ActivatedRoute } from '@angular/router';
 import { ResturantServicesService } from './../resturant-services/resturant-services.service';
@@ -9,7 +9,7 @@ import * as Toastify from 'toastify-js';
   templateUrl: './meals.component.html',
   styleUrls: ['./meals.component.scss']
 })
-export class MealsComponent {
+export class MealsComponent  {
   selected_menu='breakfast'
   payload:any = {rest:{} , meals:{}};
   cart;
@@ -40,6 +40,7 @@ export class MealsComponent {
 
   }
 
+
   category_click(e){
 
     if(e.target.classList.contains("nav-link") || e.target.children.length == 0){
@@ -52,7 +53,7 @@ export class MealsComponent {
   addToCart(item:any){
    let cart:any = localStorage.getItem("cart")  ?? '[]'
    cart = JSON.parse(cart)
-    cart.push({...item,...this.cart})
+    cart.push({...item,...this.cart ,  Dates: [new Date() , new Date() , new Date()]})
     console.log(cart)
 
    localStorage.setItem("cart", JSON.stringify(cart))

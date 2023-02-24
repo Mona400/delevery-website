@@ -1,7 +1,7 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input } from '@angular/core';
 import { PickerInteractionMode } from 'igniteui-angular';
 import { CartService } from '../../services/cart.service';
-import * as mdb from 'mdb-ui-kit'; // lib
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-cart',
@@ -10,19 +10,13 @@ import * as mdb from 'mdb-ui-kit'; // lib
 })
 export class CartComponent implements OnInit {
    cart_payload;
-   test_payLoad
+   test_payLoad;
+   total_price=0;
+   @Input() color: string;
+   loading_stating = true
   constructor(public myService: CartService) {
 
-    this.cart_payload= JSON.parse(localStorage.getItem("cart")) ;
-    this.test_payLoad= {
-      userID: '63e20ea4955f761937b0e749',
-      username: 'username',
-      meals: [],
-      monthly_price: 111,
-      Dates: ['h:m Am' , 'asd' , 'asd'],
-      ExpirationDate: new Date(),
-      substate: 'pending',
-    };
+
   }
 
   meals = {
@@ -95,19 +89,39 @@ export class CartComponent implements OnInit {
     this.myService.createSubscribtion(this.cart_payload).subscribe({
       next: (res) => {
         // console.log(res);
+        swal("Good job!", "You Have Successfully Subscriped", "success");
+
       },
       error(err) {
+        swal("Error", "Somthing Wrong Happened", "alert");
+
         console.log(err);
       },
     });
   }
   removeCartItem(id){
     this.cart_payload = this.cart_payload.filter(meal => meal._id !== id);
-
+    console.log(this.cart_payload)
     localStorage.setItem("cart" , JSON.stringify( this.cart_payload))
   }
   getData(data: any) {
     console.log(data);
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cart_payload= JSON.parse(localStorage.getItem("cart")) ;
+    this.cart_payload.forEach(element => {
+      this.total_price += element.price;
+    });
+    this.test_payLoad= {
+      userID: '63e20ea4955f761937b0e749',
+      username: 'username',
+      meals: [],
+      monthly_price: 111,
+      Dates: [new Date() , new Date() , new Date()],
+      ExpirationDate: new Date(),
+      substate: 'pending',
+    };
+
+    this.loading_stating = false
+  }
 }
