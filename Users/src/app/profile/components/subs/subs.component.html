@@ -65,7 +65,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div *ngIf="selected_sub" class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -75,19 +75,24 @@
         </button>
       </div>
       <div class="modal-body">
+        <h2 class="text-center">Arrival Dates</h2>
+        <ng-template ngFor let-item [ngForOf]="selected_sub.meals" let-i="index" >
 
-        <div class="lunch">
-          <h2 class="text-center">Arrival Date</h2>
-          <igx-time-picker
-            #timePicker
-            [(ngModel)]="date[2]"
-            [mode]="mode"
-            [spinLoop]='false'
-            [inputFormat]="format">
-                <label igxLabel>Time</label>
-            </igx-time-picker>
+          <div class="lunch text-center">
 
-        </div>
+            <h1 style="color: #ff4000;">{{selected_sub.meals[i].title}}</h1>
+            <img src="{{selected_sub.meals[i].image}}" width="300px" alt="" srcset="">
+            <igx-time-picker
+              #timePicker
+              [(ngModel)]="selected_sub.Dates[i]"
+                          [spinLoop]='false'
+                          value="'16:14:00'" >
+                  <label igxLabel>Time</label>
+              </igx-time-picker>
+
+          </div>
+        </ng-template>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

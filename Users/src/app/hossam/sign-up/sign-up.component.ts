@@ -62,7 +62,10 @@ export class SignUpComponent  implements  OnInit {
       console.log(this.myRegisterationForm.value)
       this.myservice.addnewuser({...this.myRegisterationForm.value , type:'user'})
       .subscribe({
-        next:(res)=>console.log
+        next:(res)=>{
+          sweetAlert("Logged in Successfully", ` Thank you for signing up `, "success");
+          location.replace('home')
+        }
       })
     //   if(this.myRegisterationForm.valid ) {
     //     console.log(this.myRegisterationForm.value)

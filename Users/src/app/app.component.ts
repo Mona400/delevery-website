@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import * as Aos from 'aos';
+import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from '@angular/router'
 import Swiper from 'swiper';
+import { Observable } from 'rxjs';
 // import fs  from "font-awesome";
 
 @Component({
@@ -8,7 +10,7 @@ import Swiper from 'swiper';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent  {
 
   constructor(){
      Aos.init({once: false,easing: 'ease'});
@@ -21,3 +23,5 @@ export class AppComponent {
     }
   title = 'Ecommerce';
 }
+
+

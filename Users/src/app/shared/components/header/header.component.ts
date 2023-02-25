@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
@@ -6,13 +6,20 @@ import { SharedService } from 'src/app/shared/services/shared.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   /**
    *
    */
+
+  current_user
   constructor(public sh:SharedService) {
 
 
+  }
+  ngOnInit(): void {
+    if(this.sh.my_checkAuth()){
+      this.current_user = JSON.parse(localStorage.getItem("user"))
+    }
   }
   backme(){
 
@@ -27,6 +34,7 @@ export class HeaderComponent {
   id:any
   logout(){
     localStorage.setItem("Loggedin","false")
+    location.replace("/home")
   }
   drop(param:any){
     if(this.id==param){

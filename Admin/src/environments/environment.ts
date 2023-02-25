@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  baseApi:"https://fakestoreapi.com/",
+  //baseApi:"https://fakestoreapi.com/",
+  // baseApi:"http://aklney.onrender.com/",
+  baseApi:"http://localhost:5000/",
+
+
   production: false
 };
 

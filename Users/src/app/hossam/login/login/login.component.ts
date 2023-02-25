@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators , FormBuilder } from '@angular/forms';
+import { RouterLink , Router } from '@angular/router';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { LoginService } from '../../service/login.service';
 
@@ -33,12 +34,15 @@ login() {
   console.log(this.myloginform.value);
     this.myservice.LoginMeIn({username:this.myloginform.value.Email , password:this.myloginform.value.passward})
     .subscribe({
-      next:(res)=>{
+      next: async (res)=>{
         console.log(res)
         localStorage.setItem("Loggedin" , "true");
         localStorage.setItem("token" , res['Token-is']);
+        console.log(res['user_payload'])
         this.sh.sign_me_in(res['user_payload'])
-        sweetAlert("Logged in Successfully", `Welcome Back , ${this.myloginform.value.Email} `, "success");
+        localStorage.setItem("user" , JSON.stringify(res['user_payload']))
+        await sweetAlert("Logged in Successfully", `Welcome Back , ${this.myloginform.value.Email} `, "success");
+        location.replace('home')
       },
       error:(err)=>{
         sweetAlert("Logged in failed", `Wrong Username or Password`, "error");

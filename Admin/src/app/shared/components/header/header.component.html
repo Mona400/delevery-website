@@ -1,11 +1,193 @@
-<nav>
+
+
+
+
+<header>
   <div class="container">
-    <div class="content">
-      <h2 class="logo">Market</h2>
-      <ul>
-        <li routerLink="/">Products</li>
-        <li routerLink="/cart">Cart</li>
-      </ul>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="language">
+          <ul>
+
+
+            <li (click)="drop('currency')">
+             Admin<i class="fa fa-caret-down"></i>
+              <div class="dropdown" *ngIf="id === 'currency'">
+                <ul>
+                  <li routerLink="/home">Home</li>
+                  <li routerLink="/resturant-crud">Manage Resturants</li>
+                  <li routerLink="/all-resturants">All Resturants</li>
+                  <li routerLink="/product-crud">Manage Meals</li>
+                  <li routerLink="/products">All Meals</li>
+                  <li routerLink="/cart-controller">Manage Orders</li>
+                  <li routerLink="/promotion"> Promotions</li>
+
+                  <li  style="cursor: pointer;" *ngIf="auth_flag " > <a  data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Edit Profile</a></li>
+                  <li (click)="sh.LogMeOut()"  >Log Out</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8" style="text-align: right">
+        <div class="social-menu">
+          <ul>
+            <!-- <li routerLink="/home" routerLinkActive="active">Home</li>
+            <li routerLink="/product-crud" routerLinkActive="active">CRUD</li>
+            <li routerLink="/all-resturants" routerLinkActive="active">All Resturants</li>
+            <li routerLink="/products" routerLinkActive="active">Products</li> -->
+
+
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <button routerLink="/signup" class="login" routerLinkActive="active"> Register </button>
+              <button routerLink="/login" class="login" routerLinkActive="active"> Login </button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
+</header>
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+
+<!-- Button trigger modal
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<!-- Modal -->
+
+
+
+<div *ngIf="current_user" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 31vw;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">My Profile</h5>
+        <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+
+        </button>
+      </div>
+      <div class="modal-body" id="general">
+        <div class="d-flex flex-column" >
+          <div class="some-info">
+            <div>
+              <div class="user-img">
+                {{current_user.username[0]}}
+              </div>
+            </div>
+            <div>
+              <p style="font-size: 1.6rem;">{{current_user.username}}</p>
+              <p style="width: 22vw;">{{current_user.email}}</p>
+            </div>
+
+          </div>
+          <hr>
+          <ul class="profile-list">
+            <li routerLink="users/subs"> <span > <img src="../../../../assets/sub-icon.png" width="50px" > </span> subscriptions</li>
+            <li > <span> <img src="../../../../assets/info-icon.png" width="50px"> </span>Info</li>
+            <li >  <span> <img src="../../../../assets/logout-icon.png" width="50px"></span> Log out</li>
+          </ul>
+        </div>
+
+
+      </div>
+
+      <div class="modal-body" id="info">
+        <div class="inner-container d-flex flex-column" >
+          <h1 class="text-center alert alert-success myModaltitle">Edit Info</h1>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
+            </div>
+            <input type="text" name="firstName" class="form-control" placeholder="{{current_user.firstName}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Last Name</span>
+            </div>
+            <input type="text" name="lastName" class="form-control" placeholder="{{current_user.lastName}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+            </div>
+            <input type="text" name="username" class="form-control" placeholder="{{current_user.username}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+            </div>
+            <input type="text" name="email" class="form-control" placeholder="{{current_user.email}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Gender</span>
+            </div>
+            <input type="text" name="gender" class="form-control" placeholder="{{current_user.gender}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
+
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" >Close</button>
+        <button type="button" class="btn saver ">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

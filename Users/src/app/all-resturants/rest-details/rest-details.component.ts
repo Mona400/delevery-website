@@ -64,21 +64,27 @@ export class RestDetailsComponent  {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
   AddingReviews(){
-    Toastify({
 
-      text: "You Need To Be Logged In",
-      duration: 3000,
-      newWindow: true,
-      close: true,
-      gravity: "top", // `top` or `bottom`
-      position: "center", // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
-      style: {
-        background: "red",
-      },
+    if(!this.State.my_checkAuth()){
+      Toastify({
 
-      }).showToast();
-    this.review_flag=true
+        text: "You Need To Be Logged In",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "red",
+        },
+
+        }).showToast();
+    }else{
+      this.review_flag=true
+
+    }
+
 
 
 

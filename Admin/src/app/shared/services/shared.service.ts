@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -7,5 +8,25 @@ import { Injectable } from '@angular/core';
 })
 export class SharedService {
 
-  constructor() { }
+  constructor(private _router:Router) { }
+
+  LogMeOut(){
+    localStorage.setItem('Loggedin','false');
+    localStorage.setItem('user','{}');
+    this._router.navigateByUrl('/home')
+  }
+  LogMeIn(user:{} , token){
+    localStorage.setItem('Loggedin','true');
+    localStorage.setItem('token',token);
+    localStorage.setItem('user',JSON.stringify(user));
+    this._router.navigateByUrl('/home')
+  }
+  my_checkAuth(){
+    if(localStorage.getItem('Loggedin') == 'true') return true;
+    return false
+  }
+
+
+
+
 }

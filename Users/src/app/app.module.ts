@@ -30,6 +30,7 @@ import {CartComponent} from './Alyaa/components/cart/cart.component'
 import { SubsComponent } from './profile/components/subs/subs.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoginComponent } from './hossam/login/login/login.component';
+import { AccountGuardGuard } from './hossam/guards/account-guard.guard';
 import { SignUpComponent } from './hossam/sign-up/sign-up.component';
 
 
@@ -50,6 +51,7 @@ import { SignUpComponent } from './hossam/sign-up/sign-up.component';
 
   ],
   imports: [
+
 
   BrowserModule,
     MatFormFieldModule,
@@ -83,7 +85,7 @@ import { SignUpComponent } from './hossam/sign-up/sign-up.component';
     FormsModule,
     Ng2SearchPipeModule
   ],
-  providers: [],
+  providers: [AccountGuardGuard],
   bootstrap: [AppComponent]
 })
 

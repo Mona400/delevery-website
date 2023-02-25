@@ -65,7 +65,8 @@ header {
   position: relative;
   background-color: black;
   // height: 75vh;
-   height: 149vh;
+   height: 110vh;
+
 
   min-height: 25rem;
   width: 100%;
@@ -79,6 +80,7 @@ header video {
   min-width: 100%;
   min-height: 100%;
   width: auto;
+  object-fit: cover;
   height: auto;
   z-index: 0;
   -ms-transform: translateX(-50%) translateY(-50%);

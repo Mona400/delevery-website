@@ -13,8 +13,8 @@ export class ProductsService implements OnInit {
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
-  getAllProducts() {
-    return this.http.get(environment.baseApi + 'products');
+  getAllProducts(restId:number) {
+    return this.http.get(environment.baseApi + `restaurants/${restId}/meals`);
   }
   getAllCategories() {
     return this.http.get(environment.baseApi + 'products/categories');
@@ -24,9 +24,6 @@ export class ProductsService implements OnInit {
   }
   getProductById(id:any) {
     return this.http.get(environment.baseApi + 'products/'+id);
-  }
-  createProduct(model:any){
-return this.http.post(environment.baseApi +'products',model)
   }
 
 }

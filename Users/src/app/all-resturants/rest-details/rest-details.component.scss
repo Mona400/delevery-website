@@ -14,7 +14,6 @@
 
     .hero_placeholder{
       //background-color:  #0000008c;
-      background-image: url("https://images.unsplash.com/photo-1609994263270-82dbf0b283e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MTExNTR8MHwxfHNlYXJjaHwxfHxyZXN0YXVyYW50JTIwbG9nb3xlbnwwfHx8fDE2NzY1MzgzNjA&ixlib=rb-4.0.3&q=80&w=400");
       border-radius: 25px;
       color: white;
       width: 80%;
@@ -55,7 +54,7 @@
         position: relative;
         z-index: 4;
         width: 93%;
-        background-color: #000000a8;
+        background-color: rgb(0 0 0 / 42%);
         padding-block: 10vh;
         border-radius: 25px;
         margin-inline: auto;

@@ -1,0 +1,64 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ProductsService } from 'src/app/products/services/products.service';
+import { CartService } from '../../services/cart.service';
+
+@Component({
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.scss']
+})
+export class CartComponent implements OnInit{
+  constructor(private service:CartService, private build:FormBuilder , private productService:ProductsService,routet:Router) {
+  }
+  carts:any[] = [];
+  products:any[] = [];
+  total = 0
+  form!:FormGroup;
+  details:any;
+  ngOnInit(): void {
+   this.form = this.build.group({
+     start: [''],
+     end:['']
+   })
+    this.getAllCarts()
+  }
+
+
+
+  getAllCarts() {
+    this.service.getAllCarts().subscribe((res:any) => {
+      console.log(res)
+      this.carts = res
+    })
+  }
+
+  applyFilter() {
+    let date = this.form.value
+    this.service.getAllCarts(date).subscribe((res:any) => {
+      this.carts = res
+    })
+  }
+
+  deleteCart(id:number) {
+    this.service.deleteCart(id).subscribe(res => {
+      this.carts = this.carts.filter(cart => cart._id != id)
+      sweetAlert("success",`you delete all orders from ${res['restaurantName']}` , 'success')
+
+    })
+  }
+
+
+  view(index:number) {
+    this.products = this.carts[index].meals
+    this.details = this.carts[index].Dates.map(date => `${new Date(date).getHours()} : ${new Date(date).getMinutes()}`);
+    console.log(this.details)
+    // for(let x in this.details.products) {
+    //   this.productService.getProductById(this.details.products[x].productId).subscribe(res => {
+    //     this.products.push({item: res , quantity:this.details.products[x].quantity})
+    //   })
+    // }
+  //  console.log(this.products)
+  }
+}

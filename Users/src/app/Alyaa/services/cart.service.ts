@@ -7,7 +7,11 @@ export class CartService {
   constructor(private myCart: HttpClient) {}
   private BaseUrl = 'http://localhost:5000';
   createSubscribtion(data: any) {
-    return this.myCart.post(`${this.BaseUrl}/users/${data.userID}/subs`, data);
+    return this.myCart.post(`${this.BaseUrl}/users/${data.userID}/subs`, data , {
+      headers:{
+        authorization:localStorage.getItem("token")
+      }
+    });
   }
 
   // deleteSubscribtion(data: any) {

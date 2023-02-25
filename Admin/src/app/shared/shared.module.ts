@@ -7,9 +7,10 @@ import{HttpClientModule} from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
 // import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 import { SelectComponent } from './components/select/select.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -17,13 +18,13 @@ import { AppRoutingModule } from '../app-routing.module';
     HeaderComponent,
     SpinnerComponent,
     SelectComponent,
+    FooterComponent,
 
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
 
 
     //  SpinnerComponent
@@ -36,12 +37,12 @@ HttpClientModule,
     HeaderComponent,
     // BrowserModule,
     SpinnerComponent,
-    // // SpinnerComponent,
+    FooterComponent,
+    SpinnerComponent,
     RouterModule,
     FormsModule,
     SelectComponent,
     AppRoutingModule,
-    ReactiveFormsModule,
 
 
 
