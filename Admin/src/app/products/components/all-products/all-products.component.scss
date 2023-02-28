@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   margin-right: 0;
   margin-left: 0;
+  row-gap: 5vh;
   width: 95%;
   // height: 16rem;
 }
@@ -36,5 +37,33 @@ ul  li{
   background: #eee;
   color: #ff4000;
   border: 1px solid #ff4000;
+}
+
+.card-body{
+  padding: 0;
+  padding-block: 2vh;
+  /* padding-top: 2vh; */
+  text-align: center;
+}
+
+
+.price p{
+  margin-bottom: 0;
+
+}
+.price .money{
+  font-size: 20px;
+  color: #fa0;
+  font-weight: 700;
+  font-style: italic;
+  margin-right:6px ;
+}
+.price .old-price{
+line-height: 18px;
+text-decoration: line-through;
+color: #888;
+font-style: italic;
+font-weight: 400;
+
 }
 

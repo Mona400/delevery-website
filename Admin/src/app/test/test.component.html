@@ -1,0 +1,69 @@
+<form style="padding-top: 90vh;" [formGroup]="form" action="">
+
+  <input type="text" formControlName="title" >
+  <button class="btn btn-warning" (click)="patchme('eh el bdan da')" data-toggle="modal" data-target="#exampleModalCenter"> Edit</button>
+
+</form>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form"  >
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <label for="">Title</label>
+                <input type="text" formControlName="title" class="form-control"  placeholder="title">
+
+            </div>
+
+         <div class="col-md-12 col-sm-12">
+            <label for="">description</label>
+            <input type="text" formControlName="description"   class="form-control" placeholder="rating">
+        </div>
+        <div class="col-md-12 col-sm-12">
+          <label for="">price</label>
+          <input formControlName="price" type="number"  class="form-control" placeholder="rating">
+      </div>
+
+
+            <div class="col-md-12 col-sm-12">
+                <label for="image">Image</label>
+                <input formControlName="image" type="file"  class="form-control"  >
+            </div>
+            <div class="form-group col-md-12" >
+              <label for="inputState">State</label>
+              <select formControlName="sectionName"  id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>Breakfast</option>
+                <option>Dinner</option>
+                <option>Lunch</option>
+              </select>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+            <button class="btn btn-success" >Add Product</button>
+
+        </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button >change title</button>

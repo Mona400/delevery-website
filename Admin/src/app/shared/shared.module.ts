@@ -15,7 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent,
+
     SpinnerComponent,
     SelectComponent,
     FooterComponent,
@@ -34,7 +34,7 @@ HttpClientModule,
 
   ],
   exports:[
-    HeaderComponent,
+
     // BrowserModule,
     SpinnerComponent,
     FooterComponent,

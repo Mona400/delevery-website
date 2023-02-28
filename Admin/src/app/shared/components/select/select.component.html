@@ -13,8 +13,13 @@
   <select class="form-control" (change)="detectChanges($event)">
     <option value="all" selected>All</option>
 
-    <option value="{{ option }}" *ngFor="let option of data">
-      {{ option }}
-    </option>
+
+    <ng-template ngFor let-item [ngForOf]="data" let-i="index">
+      <option value="{{ data[i] }}" >
+        {{ data[i] }}
+      </option>
+    </ng-template>
+
+
   </select>
 </div>

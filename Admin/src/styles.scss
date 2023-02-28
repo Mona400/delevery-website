@@ -1,5 +1,5 @@
 
-@use "igniteui-angular/theming" as *;
+// @use "igniteui-angular/theming" as *;
 // Uncomment the following lines if you want to add a custom palette:
 // $primary: #731963 !default;
 // $secondary: #ce5712 !default;
@@ -7,11 +7,11 @@
 
 /* autoprefixer grid: on */
 
-@include core();
-@include typography($font-family: $material-typeface, $type-scale: $material-type-scale);
-@include theme($default-palette);
+// @include core();
+// @include typography($font-family: $material-typeface, $type-scale: $material-type-scale);
+// @include theme($default-palette);
 // CSS Reset, comment out if not required or using a different module
-@import 'minireset.css/minireset';
+// @import 'minireset.css/minireset';
 /* You can add global styles to this file, and also import other style files */
 // body{
 //   padding: 0;
@@ -44,7 +44,9 @@ body{
   box-sizing: border-box;
 
 }
-// ------------------------------banner style
+
+
+------------------------------banner style
 .banner{
   position: relative;
 }

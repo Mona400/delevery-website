@@ -47,7 +47,8 @@ login() {
       error:(err)=>{
         sweetAlert("Logged in failed", `Wrong Username or Password`, "error");
 
-      }
+      },
+
     })
 
 

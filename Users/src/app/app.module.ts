@@ -32,6 +32,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LoginComponent } from './hossam/login/login/login.component';
 import { AccountGuardGuard } from './hossam/guards/account-guard.guard';
 import { SignUpComponent } from './hossam/sign-up/sign-up.component';
+import { AboutComponent } from './about/about.component';
 
 
 // var routes: Routes  = []
@@ -47,7 +48,8 @@ import { SignUpComponent } from './hossam/sign-up/sign-up.component';
     LoginComponent,
     MealsComponent,
     SubsComponent,
-    SignUpComponent
+    SignUpComponent,
+    AboutComponent
 
   ],
   imports: [

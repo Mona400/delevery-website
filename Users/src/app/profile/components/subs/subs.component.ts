@@ -38,8 +38,12 @@ export class SubsComponent implements OnInit {
   }
 
 
-  deleteSub( sub_ID){
+async  deleteSub( sub_ID , substate){
     console.log(sub_ID)
+    if(substate != 'pending'){
+      await sweetAlert("Sorry", "You Cant Delete the subscription since it's not in pending state", "error");
+      return;
+    }
     this.subService.DeleteSubscribtions(this.current_user._id , sub_ID)
     .subscribe({
       next:(res) => {

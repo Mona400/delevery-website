@@ -3,6 +3,7 @@ import { PickerInteractionMode } from 'igniteui-angular';
 import { CartService } from '../../services/cart.service';
 import swal from 'sweetalert';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +16,7 @@ export class CartComponent implements OnInit {
    total_price=0;
    @Input() color: string;
    loading_stating = true
-  constructor(public myService: CartService , private _router:Router) {
+  constructor(public myService: CartService , private _router:Router , public sh:SharedService) {
 
 
   }
@@ -98,10 +99,13 @@ export class CartComponent implements OnInit {
 
       },
     async  error(err) {
+
        let res =await swal("Session Timed Out", "You Need to log in", "error" , {
           buttons:['cancel' , 'login']
         });
         if(res){
+          localStorage.setItem("Loggedin" , "false");
+          localStorage.setItem("user","{}")
           location.replace("login")
         }
         console.log(err);

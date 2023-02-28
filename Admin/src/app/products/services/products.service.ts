@@ -19,11 +19,23 @@ export class ProductsService implements OnInit {
   getAllCategories() {
     return this.http.get(environment.baseApi + 'products/categories');
   }
-  getProductByCategory(keyword:string) {
-    return this.http.get(environment.baseApi + 'products/category/'+keyword);
+  getProductByCategory( restID ,  keyword:string) {
+    return this.http.get(environment.baseApi + `restaurants/${restID}/meals?section=`+keyword);
   }
   getProductById(id:any) {
     return this.http.get(environment.baseApi + 'products/'+id);
   }
+  DeleteMeal(id:any , restID:number) {
+    return this.http.delete(environment.baseApi + `restaurants/${restID}/meals/${id}`);
+  }
+
+  UpdateMeal(id:any , restID:number , payload:any) {
+    return this.http.patch(environment.baseApi + `restaurants/${restID}/meals/${id}`,payload);
+  }
+
+  AddMeal( restID:number , payload:any) {
+    return this.http.post(environment.baseApi + `restaurants/${restID}/meals`,payload);
+  }
+
 
 }

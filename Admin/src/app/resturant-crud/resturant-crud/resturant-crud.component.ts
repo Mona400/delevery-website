@@ -96,6 +96,7 @@ export class ResturantCrudComponent implements OnInit{
 
   update(item:any) {
     this.showadd=false;
+    console.log(item)
     this.showupdate=true;
    // console.log(item)
     this.form.patchValue({

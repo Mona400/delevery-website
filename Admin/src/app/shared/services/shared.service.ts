@@ -21,6 +21,10 @@ export class SharedService {
     localStorage.setItem('user',JSON.stringify(user));
     this._router.navigateByUrl('/home')
   }
+  RetrieveUser(){
+    return JSON.parse(localStorage.getItem("user"))
+
+  }
   my_checkAuth(){
     if(localStorage.getItem('Loggedin') == 'true') return true;
     return false

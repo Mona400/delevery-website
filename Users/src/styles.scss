@@ -1,5 +1,5 @@
 
-@use "igniteui-angular/theming" as *;
+
 // Uncomment the following lines if you want to add a custom palette:
 // $primary: #731963 !default;
 // $secondary: #ce5712 !default;
@@ -37,13 +37,15 @@ body{
 
 
 }
-*{
+*, *::before, *::after{
   font-family: inherit;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+
 
 }
+
+
 // ------------------------------banner style
 .banner{
   position: relative;

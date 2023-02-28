@@ -21,12 +21,15 @@ import { AuthGuard } from './login/component/auth.guard';
 
 import { EditProfileComponent } from "./edit-profile/edit-profile/edit-profile.component";
 import { PromotionComponent } from "./promotion/promotion/promotion.component";
+import { TestComponent } from "./test/test.component";
+import { UsersComponent } from "./users/users.component";
 var routes: Routes  = [
 
   {path:"login",component:LoginComponent},
   {path:"signup",component:SignupComponent},
+  {path:"test",component:TestComponent},
       {path:'',redirectTo:'login',pathMatch:"full"},
-
+      {path:"users",component:UsersComponent , canActivate:[AuthGuard]},
       {path:"resturant-crud",component:ResturantCrudComponent , canActivate:[AuthGuard]},
       {path:"cart-controller",component:CartComponent , canActivate:[AuthGuard]},
   {path:"product-crud",component:ProductCrudComponent , canActivate:[AuthGuard]},

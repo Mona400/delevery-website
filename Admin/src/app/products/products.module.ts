@@ -14,9 +14,9 @@ import { ResturantCrudComponent } from '../resturant-crud/resturant-crud/restura
 
 @NgModule({
   declarations: [
-    AllProductsComponent,
+
 ProductDetailsComponent,
-ProductComponent,
+
 
 
 
