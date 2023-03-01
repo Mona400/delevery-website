@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubsServiceService } from './../../services/subs-service.service';
 import { SharedService } from 'src/app/shared/services/shared.service';
-import { PickerInteractionMode } from 'igniteui-angular';
+// import { PickerInteractionMode } from 'igniteui-angular';
 
 
 @Component({
@@ -13,13 +13,14 @@ export class SubsComponent implements OnInit {
   payload;
   current_user;
   selected_sub;
+  displayedColumns: string[] = ['RestName', 'Renew_time', 'Status' , 'Price' , 'Actions'];
   setSelected(sub){
     this.selected_sub = sub
     console.log(sub)
   }
 
   datify(str){return new Date(str)}
-  public mode: PickerInteractionMode = PickerInteractionMode.DropDown;
+  // public mode: PickerInteractionMode = PickerInteractionMode.DropDown;
   public format = 'hh:mm tt';
   public date = [new Date() , new Date() , new Date()];
   constructor( public subService:SubsServiceService , public state:SharedService) {
@@ -27,9 +28,8 @@ export class SubsComponent implements OnInit {
 
     this.payload = subService.getSubscribtions(this.current_user._id).subscribe({
       next:(res:any[])=>{
-        res = res.map(item => {return {...item , Dates:[...item.Dates.map(item => new Date(item))]}})
+        // res = res.map(item => {return {...item }})
         this.payload = res
-        console.log(new Date(res[0].Dates[0]) )
       }
     })
   }
@@ -48,6 +48,9 @@ async  deleteSub( sub_ID , substate){
     .subscribe({
       next:(res) => {
         this.payload = this.payload.filter(e => e._id != sub_ID)
+      },
+      error: async (err) => {
+        await  sweetAlert("Something wrong happened", "Please try again later", "error");
       }
     })
   }

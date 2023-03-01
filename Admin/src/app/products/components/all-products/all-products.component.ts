@@ -19,23 +19,32 @@ export class AllProductsComponent implements OnInit {
   cartProducts: any[] = [];
   base64;
   selected_product;
+  restID;
+  file;
+
   form:FormGroup
   // color =["red","green","yrr"]
   constructor(private service: ProductsService , private activeRoute:ActivatedRoute , public build:FormBuilder) {
+    this.restID = activeRoute.snapshot.params["id"]
     this.form = build.group({
       title:['',Validators.required],
       price:[null,[]],
       description:['',[]],
-      image:['',[]]
+
+      image:['',[]],
+      SectionName:['dinner' , []]
     })
   }
 
   getImagePath(event){
-    const file = event.target.files[0];
-    this.selected_product.image = file;
+    this.file = event.target.files[0];
+    if(this.selected_product){
+      this.selected_product.image = this.file;
+
+    }
     console.log(this.selected_product)
     const reader = new FileReader();
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(this.file);
     reader.onload = () => {
        this.base64 = reader.result;
        this.form.get('image')?.setValue(this.base64)
@@ -101,7 +110,8 @@ export class AllProductsComponent implements OnInit {
     this.base64 = item.image
     this.selected_product = item
     this.form.setValue({title:item.title , price:item.price , description:item.description,
-      image:item.image
+      image:item.image,
+      SectionName:item.SectionName
     })
 
 
@@ -110,8 +120,8 @@ export class AllProductsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.activeRoute.snapshot.params["id"])
-     this.getProducts(this.activeRoute.snapshot.params["id"]);
+    console.log( this.restID )
+    this.getProducts( this.restID );
     // this.getCategories();
 
   }
@@ -169,5 +179,38 @@ export class AllProductsComponent implements OnInit {
       this.cartProducts.push(event);
       localStorage.setItem('card', JSON.stringify(this.cartProducts));
     }
+  }
+
+
+  CreateMeal(meal){
+    let all_data;
+    // if(typeof this.selected_product.image == 'string'){
+    //   this.selected_product.image = this.form.value['image']
+    //   delete this.selected_product.image;
+
+    // }
+    all_data = {restaurantID:this.restID ,image : this.file , ...this.Objectfilter(this.form.value)}
+    let form_payload = new FormData();
+
+    for( let entry in all_data){
+      form_payload.append(entry , all_data[entry] )
+    }
+
+  console.log(form_payload.getAll("image"))
+    console.log(all_data)
+
+
+    this.service.AddMeal(this.restID , form_payload)
+    .subscribe({
+      next: async (res:any)=>{
+        await sweetAlert("Success" , "You Have added a new meal" , "success")
+        this.form.reset()
+        this.base64=""
+        this.products.push(res)
+      },
+      error: async (err)=>{
+        await sweetAlert("Failure" , "Something Went Wrong" , "error")
+      }
+    })
   }
 }

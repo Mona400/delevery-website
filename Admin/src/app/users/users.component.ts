@@ -11,6 +11,7 @@ export class UsersComponent implements OnInit {
 form:FormGroup
 users;
 selected_user;
+loading=true;
 /**
  *
  */
@@ -27,9 +28,14 @@ constructor(private build:FormBuilder , public userService:UserServiceService) {
 
 }
   ngOnInit(): void {
+
     this.userService.GetAllUsers()
     .subscribe({
-      next:(res)=>{this.users = res}
+      next:(res)=>{
+        this.users = res
+        this.loading = false
+      }
+
     })
   }
 

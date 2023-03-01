@@ -9,6 +9,9 @@ import {ResturantServicesService} from '../resturant-services/resturant-services
 })
 export class AllResturantsComponent implements OnInit {
   payload;
+  all_data;
+  loading=true;
+  search_text="";
   constructor(public restService:ResturantServicesService){ }
   ngOnInit(): void {
     this.getAll()
@@ -38,10 +41,17 @@ export class AllResturantsComponent implements OnInit {
     nav: true
   }
 
+  filterArr(){
+    console.log(this.search_text)
+    this.payload = this.all_data.filter(date => date.title.toLowerCase().includes(this.search_text.toLowerCase()))
+  }
+
   getAll(){
     this.restService.GetallRest().subscribe({
       next:(res)=>{
+        this.all_data=res
         this.payload=res
+        this.loading = false
         console.log(res)
       }
     })

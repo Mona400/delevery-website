@@ -27,26 +27,36 @@ export class LoginComponent implements OnInit {
   }
   login() {
 
-    this.http.post<any>(`${environment.baseApi}account/login` , {username:this.loginform.value.email , password:this.loginform.value.password}).subscribe( async (res) => {
-      //match email & password
-      console.log(res)
-      if(res){
-       await SweetAlert("Success", `Welcome Back , ${this.loginform.value.email}`, "success");
+    this.http.post<any>(`${environment.baseApi}account/login` , {username:this.loginform.value.email , password:this.loginform.value.password}).subscribe({
+      next:async (res) => {
+        //match email & password
+        console.log("ay7aga")
+        console.log(res)
+        if(res){
+         await SweetAlert("Success", `Welcome Back , ${this.loginform.value.email}`, "success");
 
-        this.sh.LogMeIn(res['user_payload'] ,res['Token-is'] );
+          this.sh.LogMeIn(res['user_payload'] ,res['Token-is'] );
 
 
-        this.loginform.reset();
-        this.router.navigate(['product-crud'])
+          this.loginform.reset();
+          this.router.navigate(['home'])
 
-      }else{
-        await SweetAlert("Somthing Wrong", `User not found with this info !`, "error");
+        }else{
+          await SweetAlert("Somthing Wrong", `User not found with this info !`, "error");
 
+        }
       }
-    }), async err=>{
-      await SweetAlert("Somthing Wrong", "some thing went wrong !", "error");
+     ,
+     error: async (err)=>{
+
+        await SweetAlert("Somthing Wrong", `Invalid Username or Password`, "error");
 
 
-    };
+
+     }
+    }
+
+
+    )
   }
 }

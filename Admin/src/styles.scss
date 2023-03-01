@@ -8,10 +8,10 @@
 /* autoprefixer grid: on */
 
 // @include core();
-// @include typography($font-family: $material-typeface, $type-scale: $material-type-scale);
-// @include theme($default-palette);
+//@include typography($font-family: $material-typeface, $type-scale: $material-type-scale);
+//@include theme($default-palette);
 // CSS Reset, comment out if not required or using a different module
-// @import 'minireset.css/minireset';
+ @import 'minireset.css/minireset';
 /* You can add global styles to this file, and also import other style files */
 // body{
 //   padding: 0;
@@ -151,3 +151,6 @@ transform: translate(-50%,-50%);
   object-fit: contain;
   width: 100%;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

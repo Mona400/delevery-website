@@ -51,14 +51,27 @@
                       <div class="d-flex sub-data align-items-center">
                         <p class="fw-bold mb-0 me-5 pe-3">{{meal.price}} EGP</p>
                         <div class="def-number-input number-input safari_only">
-                          <igx-time-picker
+                          <!-- <igx-time-picker
                           #timePicker
                           [(ngModel)]="meal.Date"
                           [spinLoop]='false'
                           value="16:00:00"
                           >
                               <label igxLabel>Time</label>
-                          </igx-time-picker>
+                          </igx-time-picker> -->
+                          <mat-form-field style="width: 85%;">
+                            <input matInput
+                                   name="selected_time_A"
+                                   [(ngModel)]="meal.Date"
+                                   [ngxMatTimepicker]="pickerA"
+                                   [placeholder]="meal.Date"
+                                   readonly />
+                            <mat-icon matSuffix
+                                      (click)="pickerA.open()">
+                                watch_later
+                            </mat-icon>
+                        </mat-form-field>
+                        <ngx-mat-timepicker #pickerA></ngx-mat-timepicker>
                         </div>
                       </div>
                     </div>

@@ -8,16 +8,19 @@
   </div> -->
 <!-- *ngIf="!loading" -->
 
-<app-select
+
+<div class="container">
+
+  <app-select
   [data]="categories"
   [title]="'Our Products'"
   (selectedValue)="filterCategory($event)"
 ></app-select>
+  <button  data-toggle="modal" data-target="#exampleCreateCenter" class="btn btn-success">Add Meal</button>
 
-<div class="container">
   <div class="row">
     <div class="col-md-3" *ngFor="let item of products">
-      <div class="card" >
+      <div class="card"  data-aos="fade-up" >
         <img class="card-img-top" width="200px" style="aspect-ratio: 1/1;" src="{{item.image}}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{item.title}}</h5>
@@ -76,6 +79,14 @@
                   <input type="file" formControlName="image" class="form-control" (change)="getImagePath($event)" >
               </div>
 
+              <select formControlName="SectionName">
+                <option value="breakfast">breakfast</option>
+                <option value="lunch">lunch</option>
+
+                <option value="dinner">dinner</option>
+
+              </select>
+
           </div>
           <!-- <div class="d-flex justify-content-end mt-3">
               <button class="btn btn-success"  (click)="addProduct()">Add Product</button>
@@ -91,6 +102,60 @@
   </div>
 </div>
 
+
+<div class="modal fade" id="exampleCreateCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form  [formGroup]="form" >
+          <div class="row">
+              <div class="col-md-12 col-sm-12">
+                  <label for="">Title</label>
+                  <input type="text" formControlName="title" class="form-control"  placeholder="title">
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <label for="image">Description</label>
+                <textarea class="form-control"  formControlName="description" placeholder="type here .. "></textarea>
+            </div>
+              <div class="col-md-12 col-sm-12">
+                <label for="">price</label>
+                <input type="number" formControlName="price"  class="form-control" placeholder="price">
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <label for="image">Image</label>
+                <img width="200px" src="{{base64}}" #img alt="">
+                <input type="file" formControlName="image" class="form-control" (change)="getImagePath($event)" >
+            </div>
+
+            <select formControlName="SectionName">
+              <option value="breakfast">breakfast</option>
+              <option value="lunch">lunch</option>
+
+              <option value="dinner">dinner</option>
+
+            </select>
+
+          </div>
+          <!-- <div class="d-flex justify-content-end mt-3">
+              <button class="btn btn-success"  (click)="addProduct()">Add Product</button>
+
+          </div> -->
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="CreateMeal(img)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- <div class="text-center w-100" *ngIf="loading">
     <app-spinner></app-spinner>

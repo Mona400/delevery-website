@@ -62,31 +62,31 @@ header{
   margin-left: 4px;
   margin-right: 14px;
   }
-  .dropdown {
-    background: #fff;
-    border: 1px solid #1a1a1a;
-    color: #000;
-    border-radius: 4px;
-    position: absolute;
-    z-index: 4;
-    padding: 10px;
-    top: 36px;
-    width: 180px;
-    text-align: center;
-  }
-  .dropdown ul li{
-  list-style-type: none;
-  border-bottom:  1px solid rgb(226, 226, 226);
-  padding: 4px 0;
-  transition: 0.3s all ease;
-  }
-  .dropdown ul li:last-child{
-    border-bottom: none;
-  }
-  .dropdown ul li:hover{
-  color: #ff4000;
+  // .dropdown {
+  //   background: #fff;
+  //   border: 1px solid #1a1a1a;
+  //   color: #000;
+  //   border-radius: 4px;
+  //   position: absolute;
+  //   z-index: 4;
+  //   padding: 10px;
+  //   top: 36px;
+  //   width: 180px;
+  //   text-align: center;
+  // }
+  // .dropdown ul li{
+  // list-style-type: none;
+  // border-bottom:  1px solid rgb(226, 226, 226);
+  // padding: 4px 0;
+  // transition: 0.3s all ease;
+  // }
+  // .dropdown ul li:last-child{
+  //   border-bottom: none;
+  // }
+  // .dropdown ul li:hover{
+  // color: #ff4000;
 
-  }
+  // }
   .social-menu ul{
     margin: 0;
     padding: 0;

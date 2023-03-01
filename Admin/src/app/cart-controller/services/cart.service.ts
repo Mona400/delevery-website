@@ -20,5 +20,8 @@ export class CartService {
     return this.http.delete(environment.baseApi + 'admin/subs/' + id)
   }
 
+  UpdateState(id:number , payload) {
+    return this.http.patch(environment.baseApi + 'admin/subs/' + id , payload)
+  }
 
 }

@@ -4,10 +4,17 @@
 <br>
   <button class="btn btn-success" (click)="add()"  data-bs-toggle="modal" data-bs-target="#addviewCart">Add Resturant</button>
 
-  <table class="table table-striped">
+  <div *ngIf="loading else elseblock" style="height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;">
+    <mat-spinner ></mat-spinner>
+  </div>
+  <ng-template #elseblock>
+    <table data-aos="fade-up" class="table table-striped">
       <thead>
           <tr class="text-center">
-              <th></th>
+              <th>image</th>
               <th>Name</th>
               <th>Description</th>
 
@@ -25,6 +32,8 @@
           </tr>
       </tbody>
   </table>
+  </ng-template>
+
 </div>
 
 <!-- Add Model -->
@@ -41,31 +50,25 @@
 
           <form  [formGroup]="form" >
               <div class="row">
-                  <div class="col-md-4 col-sm-12">
+                  <div class="col-md-12 col-lg-12 col-sm-12">
                       <label for="">Title</label>
                       <input type="text" formControlName="title" class="form-control" value="ay7aga title" placeholder="title">
                   </div>
-                  <div class="col-md-4 col-sm-12">
+                  <div class="col-md-12 col-lg-12 col-sm-12">
                     <label for="">speciality</label>
                     <input type="text" formControlName="speciality"  class="form-control" placeholder="speciality">
                 </div>
-                <div class="col-md-4 col-sm-12">
+                <div class="col-md-12 col-lg-12 col-sm-12">
                   <label for="">rating</label>
                   <input type="number" formControlName="rating" class="form-control" placeholder="rating">
               </div>
-                  <!-- <div class="col-md-4 col-sm-12">
-                      <label for="">Price</label>
-                      <input type="number"  formControlName="price" class="form-control" placeholder="price">
-                  </div> -->
-                  <div class="col-md-4 col-sm-12">
-                      <!-- <app-select [data]="categories" [title]="'Categories'" (selectedValue)="getSelectedCategory($event)" [all]="false" [select]="form.value.category" ></app-select> -->
-                  </div>
-                  <div class="col-md-4 col-sm-12">
+
+                  <div class="col-md-12 col-lg-12 col-sm-12">
                       <label for="image">Image</label>
                       <img src="{{base64}}" alt="">
                       <input type="file" formControlName="image" class="form-control" (change)="getImagePath($event)" >
                   </div>
-                  <div class="col-md-8 col-sm-12">
+                  <div class="col-md-12 col-lg-12 col-sm-12">
                       <label for="image">Description</label>
                       <textarea value="sakjdl;akshdlk;ajshdklajshdkasjlhdaskjdhaskjd" class="form-control"  formControlName="description" placeholder="type here .. "></textarea>
                   </div>
@@ -96,33 +99,27 @@
 
           <form [formGroup]="form" >
               <div class="row">
-                  <div class="col-md-4 col-sm-12">
+                  <div class="col-md-12 col-sm-12">
                       <label for="">Title</label>
                       <input type="text" formControlName="title" class="form-control" placeholder="title">
                   </div>
 
-                  <div class="col-md-4 col-sm-12">
+                  <div class="col-md-12 col-sm-12">
                     <label for="">speciality</label>
                     <input type="text" formControlName="speciality" class="form-control" placeholder="speciality">
                 </div>
-                <div class="col-md-4 col-sm-12">
+                <div class="col-md-12 col-sm-12">
                   <label for="">rating</label>
                   <input type="number" formControlName="rating" class="form-control" placeholder="rating">
               </div>
-                  <!-- <div class="col-md-4 col-sm-12">
-                      <label for="">Price</label>
-                      <input type="number"  formControlName="price" class="form-control" placeholder="price">
-                  </div> -->
-                  <div class="col-md-4 col-sm-12">
-                      <!-- <app-select [data]="categories" [title]="'Categories'" (selectedValue)="getSelectedCategory($event)" [all]="false" [select]="form.value.category" ></app-select> -->
-                  </div>
 
-                  <div class="col-md-4 col-sm-12">
+
+                  <div class="col-md-12 col-sm-12">
                       <label for="image">Image</label>
-                      <img src="{{base64}}" alt="">
+                      <img width="200px" src="{{base64}}" alt="">
                       <input type="file" formControlName="image" class="form-control" (change)="getImagePath($event)" >
                   </div>
-                  <div class="col-md-8 col-sm-12">
+                  <div class="col-md-12 col-sm-12">
                       <label for="image">Description</label>
                       <textarea  class="form-control"  formControlName="description" placeholder="type here .. "></textarea>
                   </div>

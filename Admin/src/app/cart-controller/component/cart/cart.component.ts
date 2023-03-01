@@ -12,9 +12,12 @@ import { CartService } from '../../services/cart.service';
 export class CartComponent implements OnInit{
   constructor(private service:CartService, private build:FormBuilder , private productService:ProductsService,routet:Router) {
   }
+  states = ['active' , 'pending' , 'expired']
   carts:any[] = [];
   products:any[] = [];
+  selectedstate;
   total = 0
+  loading=true;
   form!:FormGroup;
   details:any;
   ngOnInit(): void {
@@ -30,6 +33,7 @@ export class CartComponent implements OnInit{
   getAllCarts() {
     this.service.getAllCarts().subscribe((res:any) => {
       console.log(res)
+      this.loading = false;
       this.carts = res
     })
   }
@@ -60,5 +64,24 @@ export class CartComponent implements OnInit{
     //   })
     // }
   //  console.log(this.products)
+  }
+
+  state_changed(id , state){
+    this.service.UpdateState(id , {substate:state})
+    .subscribe({
+      next: async ()=>{
+        await sweetAlert("success" , "You Have Successfully Updated the state" ,"success")
+        this.carts.map(cart => {
+          if(cart._id == id){
+            return {...cart , substate:state}
+          }
+          return cart
+        })
+      },
+      error: async ()=>{
+        await sweetAlert("failure" , "You Have Successfully Updated the state" ,"success")
+
+      }
+    })
   }
 }

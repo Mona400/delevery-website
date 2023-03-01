@@ -18,6 +18,7 @@ export class AuthGuard implements CanActivate {
         sweetAlert("You Need to login" , "You need to be logged in",'info')
         return false
       }else{
+
         return true
       }
   }

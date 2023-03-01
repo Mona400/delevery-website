@@ -15,44 +15,53 @@
               </div>
       </div>
   </form> -->
+  <div *ngIf="loading else loadignbkic" style="height: 100vh; display: flex; justify-content: center; align-items: center;">
 
-  <table class="table table-striped">
-      <thead>
-          <tr class="text-center">
+    <mat-spinner  ></mat-spinner>
+  </div>
+    <ng-template #loadignbkic>
+      <table class="table table-striped">
+        <thead>
+            <tr class="text-center">
 
-              <th>username</th>
-              <th>firstname</th>
-              <th>lastname</th>
-              <th >subscriptions</th>
-              <th>Email</th>
-              <th>Gender</th>
+                <th>username</th>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th >subscriptions</th>
+                <th>Email</th>
+                <th>Gender</th>
 
 
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let item of users; let index = index" class="text-center">
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of users; let index = index" class="text-center">
 
-              <td>{{item.username}}</td>
-              <td>{{item.firstName}}</td>
-              <td>{{item.lastName }}</td>
-              <!-- <td>{{item.products[item].value}}</td> -->
-              <td>
-                 {{item.subscriptions.length}}
-              </td>
-              <td>
-                {{item.email}}
-             </td>
-              <td>
-                {{item.gender}}
-             </td>
-              <td >
-                  <button class="btn btn-danger mx-2" (click)="deleteUser(item)" >Delete</button>
-                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewCart" (click)="view(index)">View</button>
-              </td>
-          </tr>
-      </tbody>
-  </table>
+                <td>{{item.username}}</td>
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName }}</td>
+                <!-- <td>{{item.products[item].value}}</td> -->
+                <td>
+                   {{item.subscriptions.length}}
+                </td>
+                <td>
+                  {{item.email}}
+               </td>
+                <td>
+                  {{item.gender}}
+               </td>
+                <td >
+                    <button class="btn btn-danger mx-2" (click)="deleteUser(item)" >Delete</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewCart" (click)="view(index)">View</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    </ng-template>
+
+
+
 
 </div>
 

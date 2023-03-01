@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserServiceService } from 'src/app/users/services/user-service.service';
@@ -9,7 +9,7 @@ import { async } from '@angular/core/testing';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnChanges {
   current_user
   auth_flag
   form:FormGroup
@@ -24,6 +24,9 @@ export class HeaderComponent {
       address:[this.current_user.address,[]],
 
     })
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.auth_flag = this.sh.my_checkAuth()
   }
   id:any
   drop(param:any){

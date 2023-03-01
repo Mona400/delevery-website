@@ -1,8 +1,11 @@
-@import '../../../../../node_modules/mdb-ui-kit/css/mdb.min.css';
 
 
 table{
   margin-top: 6vh;
+
+  th,td{
+    text-align: center;
+  }
 }
 
 .example-button-container {
@@ -15,3 +18,4 @@ table{
 igx-time-picker {
   width: 400px;
 }
+

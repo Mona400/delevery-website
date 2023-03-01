@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CarouselModule } from '@coreui/angular';
@@ -12,15 +12,18 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-	IgxTimePickerModule,
-	IgxInputGroupModule,
-	IgxIconModule
- } from "igniteui-angular";
+// import {
+// 	IgxTimePickerModule,
+// 	IgxInputGroupModule,
+// 	IgxIconModule
+//  } from "igniteui-angular";
+
 import { ProductsModule } from './products/products.module';
 import { CardsModule } from './cards/cards.module';
 import { HomeComponent } from './home/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
+
 // import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AllResturantsComponent } from './all-resturants/all-resturants/all-resturants.component';
 import { ProductCrudComponent } from './product-crud/component/product-crud/product-crud.component';
@@ -59,9 +62,9 @@ import { AboutComponent } from './about/about.component';
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-    IgxTimePickerModule,
-	IgxInputGroupModule,
-	IgxIconModule,
+  //   IgxTimePickerModule,
+	// IgxInputGroupModule,
+	// IgxIconModule,
 
     MatInputModule,
     BrowserAnimationsModule,
@@ -85,7 +88,9 @@ import { AboutComponent } from './about/about.component';
     //  HttpClientModule,
     //  RouterModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxMatTimepickerModule,
+    MatTableModule
   ],
   providers: [AccountGuardGuard],
   bootstrap: [AppComponent]

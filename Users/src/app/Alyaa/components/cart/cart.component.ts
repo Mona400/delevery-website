@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Input } from '@angular/core';
-import { PickerInteractionMode } from 'igniteui-angular';
+// import { PickerInteractionMode } from 'igniteui-angular';
 import { CartService } from '../../services/cart.service';
 import swal from 'sweetalert';
 import { Router } from '@angular/router';
@@ -21,54 +21,10 @@ export class CartComponent implements OnInit {
 
   }
 
-  // meals = {
-  //   breakfast: {
-  //     _id: '63ed9ebcf87491548dc1076e',
-  //     title: 'Money Market Account',
-  //     description: 'Nisi maiores praesentium veritatis neque eaque fuga.',
-  //     price: 106.68,
-  //     image:
-  //       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?crop=entropy…',
-  //     restaurantID: '63ed93d87021063fad6282a0',
-  //     hasChoices: false,
-  //     SectionName: 'breakfast',
-  //     sectionId: '63e242951baea9c9e47ec76f',
-  //     createdAt: '2023-02-16T03:10:52.702+00:00',
-  //     updatedAt: '2023-02-16T08:42:43.272+00:00',
-  //   },
-  //   dinner: {
-  //     _id: '63ed9ebcf87491548dc1076e',
-  //     title: 'Money Market Account',
-  //     description: 'Nisi maiores praesentium veritatis neque eaque fuga.',
-  //     price: 106.68,
-  //     image:
-  //       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?crop=entropy…',
-  //     restaurantID: '63ed93d87021063fad6282a0',
-  //     hasChoices: false,
-  //     SectionName: 'breakfast',
-  //     sectionId: '63e242951baea9c9e47ec76f',
-  //     createdAt: '2023-02-16T03:10:52.702+00:00',
-  //     updatedAt: '2023-02-16T08:42:43.272+00:00',
-  //   },
-  //   lunch: {
-  //     _id: '63ed9ebcf87491548dc1076e',
-  //     title: 'Money Market Account',
-  //     description: 'Nisi maiores praesentium veritatis neque eaque fuga.',
-  //     price: 106.68,
-  //     image:
-  //       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?crop=entropy…',
-  //     restaurantID: '63ed93d87021063fad6282a0',
-  //     hasChoices: false,
-  //     SectionName: 'breakfast',
-  //     sectionId: '63e242951baea9c9e47ec76f',
-  //     createdAt: '2023-02-16T03:10:52.702+00:00',
-  //     updatedAt: '2023-02-16T08:42:43.272+00:00',
-  //   },
-  // };
   Restaurant = '';
   DateCreated = '';
   DateExpaired = '';
-  public mode: PickerInteractionMode = PickerInteractionMode.DropDown;
+  // public mode: PickerInteractionMode = PickerInteractionMode.DropDown;
   myEvent = new EventEmitter();
 
   Add() {
@@ -82,6 +38,7 @@ export class CartComponent implements OnInit {
       restaurantID , restaurantName , restaurantImg,
       substate:'active',
       Dates:[...(this.cart_payload.map(el => el.Date ))],
+      monthly_price:this.total_price,
       meals : [...(this.cart_payload.map(el => {
        return {...el}
       }))]
