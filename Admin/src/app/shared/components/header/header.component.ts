@@ -22,7 +22,7 @@ export class HeaderComponent implements OnChanges {
       firstName:[this.current_user.firstName,[]],
       lastName:[this.current_user.lastName,[]],
       email:[this.current_user.email,[]],
-      address:[this.current_user.address[0],[]],
+      address:[this.current_user.address,[]],
 
     })
   }
