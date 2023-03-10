@@ -64,37 +64,37 @@ export class SignUpComponent  implements  OnInit {
 
       if(this.myRegisterationForm.valid){
         console.log(this.myRegisterationForm.value)
-        // this.myservice.addnewuser({...this.myRegisterationForm.value , type:'user'})
-        // .subscribe({
-        //   next: async (res)=>{
-        // //  await  Swal.fire("Logged in Successfully", ` Thank you for signing up `, "success");
+        this.myservice.addnewuser({...this.myRegisterationForm.value , type:'user'})
+        .subscribe({
+          next: async (res)=>{
+        //  await  Swal.fire("Logged in Successfully", ` Thank you for signing up `, "success");
 
 
-        //   this.loginService.LoginMeIn({username:this.myRegisterationForm.value.username , password:this.myRegisterationForm.value.password})
-        //   .subscribe({
-        //     next: async (res)=>{
-        //       console.log(res)
-        //       localStorage.setItem("Loggedin" , "true");
-        //       localStorage.setItem("token" , res['Token-is']);
-        //       console.log(res['user_payload'])
-        //       this.sh.sign_me_in(res['user_payload'])
-        //       localStorage.setItem("user" , JSON.stringify(res['user_payload']))
-        //       await Swal.fire("Logged in Successfully", `Welcome , ${this.myRegisterationForm.value.username} `, "success");
-        //       location.replace('home')
-        //     },
-        //     error: async(err)=>{
-        //      await Swal.fire("Logged in failed", `Wrong Username or Password`, "error");
+          this.loginService.LoginMeIn({username:this.myRegisterationForm.value.username , password:this.myRegisterationForm.value.password})
+          .subscribe({
+            next: async (res)=>{
+              console.log(res)
+              localStorage.setItem("Loggedin" , "true");
+              localStorage.setItem("token" , res['Token-is']);
+              console.log(res['user_payload'])
+              this.sh.sign_me_in(res['user_payload'])
+              localStorage.setItem("user" , JSON.stringify(res['user_payload']))
+              await Swal.fire("Logged in Successfully", `Welcome , ${this.myRegisterationForm.value.username} `, "success");
+              location.replace('home')
+            },
+            error: async(err)=>{
+             await Swal.fire("Logged in failed", `Wrong Username or Password`, "error");
 
-        //     },
+            },
 
-        //   })
+          })
 
-        //   },
-        //   error: async ()=>{
-        //     await  Swal.fire("Failed", `something fields were empty or wrong `, "error");
+          },
+          error: async ()=>{
+            await  Swal.fire("Failed", `something fields were empty or wrong `, "error");
 
-        //   }
-        // })
+          }
+        })
       }else{
         await  Swal.fire("Failed", `something fields were empty or wrong `, "error");
 
