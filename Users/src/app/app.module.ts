@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+
 // import {
 // 	IgxTimePickerModule,
 // 	IgxInputGroupModule,
@@ -23,6 +25,8 @@ import { CardsModule } from './cards/cards.module';
 import { HomeComponent } from './home/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
+
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 // import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AllResturantsComponent } from './all-resturants/all-resturants/all-resturants.component';
@@ -65,6 +69,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
   BrowserModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatButtonModule,
     MatIconModule,
   //   IgxTimePickerModule,

@@ -22,16 +22,17 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     if(this.sh.my_checkAuth()){
       this.current_user = JSON.parse(localStorage.getItem("user"))
-    }
-    this.form = this.build.group({
-      username:[this.current_user.username,[]],
-      firstName:[this.current_user.firstName,[]],
-      lastName:[this.current_user.lastName,[]],
-      email:[this.current_user.email,[]],
-      address:[this.current_user.address,[]],
-      password:['',[]]
+      this.form = this.build.group({
+        username:[this.current_user.username,[]],
+        firstName:[this.current_user.firstName,[]],
+        lastName:[this.current_user.lastName,[]],
+        email:[this.current_user.email,[]],
+        address:[this.current_user.address,[]],
+        password:['',[]]
 
-    })
+      })
+    }
+
   }
   backme(){
 

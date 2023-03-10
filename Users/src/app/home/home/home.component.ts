@@ -89,7 +89,7 @@ export class HomeComponent  {
   secs:any=4;
 
   x=setInterval(()=>{
-    var futureDate=new Date("Mar 4,2023 15:34:24").getTime();//getTime Convert date to ms
+    var futureDate=new Date("Mar 28,2023 15:34:24").getTime();//getTime Convert date to ms
     var today=new Date().getTime();
     var distance=futureDate-today;
     this.days=Math.floor(distance/(1000 * 60 * 60 *24) )
