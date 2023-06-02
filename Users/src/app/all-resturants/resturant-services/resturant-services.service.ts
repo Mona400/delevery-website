@@ -6,9 +6,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ResturantServicesService {
-
+  environment = environment
   constructor(private http:HttpClient) { }
-   base = environment.baseApi + 'restaurants'
+   base = environment.baseApi + 'resturant'
   getAllRestaurants() {
     return this.http.get(this.base);
   }
@@ -20,7 +20,7 @@ export class ResturantServicesService {
     return this.http.get(this.base + '/category/'+keyword);
   }
   getRestaurantById(id:any) {
-    return this.http.get(this.base+'/'+id);
+    return this.http.get(this.base+'/GetBy'+id);
   }
 
   getRestaurantReviews(id:any) {

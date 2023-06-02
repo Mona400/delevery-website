@@ -4,7 +4,8 @@
 
 export const environment = {
   // baseApi:"https://fakestoreapi.com/",
-  baseApi:"https://aklney.onrender.com/",
+  baseApi:"https://localhost:7011/api/",
+  ImgURL : "https://localhost:7011/",
   //baseApi:"https://aklney.onrender.com/",
 
 

@@ -22,6 +22,8 @@ export class AllResturantsComponent implements OnInit{
 
 
    }
+
+
   policyOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -49,6 +51,7 @@ export class AllResturantsComponent implements OnInit{
 
   filterArr(){
     console.log("asdasd")
+
     this.payload = this.all_data.filter(date => date.title.toLowerCase().includes(this.search_text.toLowerCase()))
 
   }

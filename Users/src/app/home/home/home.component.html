@@ -35,7 +35,7 @@
   </c-carousel>
 </section>
 <!-- ---------------------------------------- Best Selling Design  ---------------------------- -->
-<section  class="best-selling">
+<section  class="best-selling"  *ngIf="this.ExpirationDate && this.Promo">
   <div class="container">
     <div class="best-selling-container row">
       <!-- <div class="sale-price">Sale<strong>14%</strong></div> -->
@@ -43,32 +43,32 @@
         <div class="selling-left">
           <ul>
             <li>
-              <span class="count-date">{{ days }}</span>
+              <span class="count-date">{{ ExpirationDate.days }}</span>
               <span class="count-day">Days</span>
             </li>
             <li>
-              <span class="count-date">{{ hours }}</span>
+              <span class="count-date">{{ ExpirationDate.hours }}</span>
               <span class="count-day">Hours</span>
             </li>
             <li>
-              <span class="count-date">{{ mins }}</span>
+              <span class="count-date">{{ ExpirationDate.mins }}</span>
               <span class="count-day">Mins</span>
             </li>
             <li>
-              <span class="count-date">{{ secs }}</span>
+              <span class="count-date">{{ ExpirationDate.secs }}</span>
               <span class="count-day">Secs</span>
             </li>
           </ul>
         </div>
       </div>
       <div class="selling-col-2 d-flex justify-content-center align-items-center   col-lg-5 col-md-5 col-sm-12">
-        <div class="selling-img">
-          <img src="../assets/burgar.png" alt="Best Selling" />
+        <div  class="selling-img">
+          <img src="{{Promo.imageUrl}}" alt="Best Selling" />
         </div>
       </div>
       <div class="selling-col-3 flex-column d-flex justify-content-center col-lg-4 col-md-4 col-sm-12">
         <div class="selling-heading">
-          <a href="javascrip:void(0);">Enim Pichana Enim</a>
+          <a href="javascrip:void(0);">{{Promo.title}}</a>
           <div class="selling-rating">
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
@@ -78,14 +78,11 @@
           </div>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates
-          quod ipsum, dignissimos impedit tenetur eius omnis. Dolor provident
-          magnam, et deserunt laboriosam odio commodi atque necessitatibus
-          quidem eum, nam ex!
+          {{Promo.description}}
         </p>
         <h3>
-          <span class="selling-amount">$230.00</span>
-          <span class="selling-discount">$202000</span>
+          <span class="selling-amount">{{Promo.priceAfter | currency}}</span>
+          <span class="selling-discount">{{Promo.priceBefore | currency}}</span>
         </h3>
         <div class="selling-button">
           <a href="javascrip:void(0);" class="cart-btn"
@@ -179,7 +176,7 @@
       <div class="mycol col-sm-12 col-md-3 col-lg-3">
         <div data-aos="fade-up" data-aos-duration="500"  class="card" routerLink="/restaurant/{{payload[i]._id}}">
 
-          <img src={{payload[i].image}} class="card-img-top" width="15rem" style="aspect-ratio: 1/1;" alt="..." >
+          <img src="{{PromoSer.environment.ImgURL+payload[i].image}}" class="card-img-top" width="15rem" style="aspect-ratio: 1/1;" alt="..." >
           <div class="card-body">
           <h5 class="card-title text-center ">{{payload[i].title}}</h5>
           <p class="card-text">{{payload[i].description.substring(0,50)}}..</p>
