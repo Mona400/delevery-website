@@ -1,138 +1,127 @@
-@import '../../../../node_modules/mdb-ui-kit/css/mdb.min.css';
 
-.login{
-  color:black;
-}
-.login a{
-  color: #d39e00;
-  font-weight: 600;
-  text-decoration: none;
+
+/* ---------- GENERAL ---------- */
+* {
+  box-sizing: inherit;
 }
 
-// .row{
-//   width: 80%;
-// }
-/* Add application styles & imports to this file! */
-// @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
-// @import url('../node_modules/simple-keyboard/build/css/index.css');
-body{
+html {
+  box-sizing: border-box;
+}
 
-  background-color: brown;
-  // background-color: brown;
+body {
+  background-color: #c0c0c0;
+  font-family: 'Varela Round', sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  min-block-size: 100vh;
+  padding: 5vmin;
 }
-.auth-card{
-  background: #c31432;  /* fallback for old browsers */
-  // background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
-  background: gray;  /* Chrome 10-25, Safari 5.1-6 */
-  // background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: gray ; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 5px;
-  box-shadow: 0px 0px 30px #f7f7f7;
+
+h2 {
+  font-size: 1.75rem;
 }
-label{
-  color: #fff;
-  font-weight: 700;
-}
-.user-image{
-  height: 70px;
-}
-.auth-avatar{
-  text-align: center;
-  margin-top: -50px;
-}
-.auth{
-  margin-top: 35px;
+
+input {
+  background-image: none;
   border: none;
-  border-radius: 6px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-}
-.btn-my{
-  background-color: #d39e00;
-  border-color: #d39e00;
-  color: #fff;
-}
-.simple-keyboard {
-  max-width: 850px;
-
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s;
 }
 
-// video style
-
-header {
-  position: relative;
-  background-color: black;
-  // height: 75vh;
-  /// height: 110vh;
-
-
-  min-height: 25rem;
-  width: 100%;
-  overflow: hidden;
-}
-
-header video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  object-fit: cover;
+svg {
   height: auto;
-  z-index: 0;
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  -o-transform: translateX(-50%) translateY(-50%);
+  max-width: 100%;
+  vertical-align: middle;
 }
 
-header .container {
-  position: relative;
+/* ---------- ALIGN ---------- */
+.align {
+  display: grid;
+  place-items: center;
+}
+
+/* ---------- BUTTON ---------- */
+
+.button {
+  background-color: #33cc77;
+  color: #fff;
+  padding: 0.25em 1.5em;
+}
+
+.button:focus,
+.button:hover {
+  background-color: #28ad63;
+}
+
+/* ---------- ICONS ---------- */
+.icons {
+  display: none;
+}
+
+.icon {
+  fill: currentcolor;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+}
+
+/* ---------- LOGIN ---------- */
+.login {
+  width: 400px;
+  height: auto;
   z-index: 2;
+
 }
 
-header .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
+.login__header {
+  background-color: #f95252;
+  border-top-left-radius: 1.25em;
+  border-top-right-radius: 1.25em;
+  color: #fff;
+  padding: 1.25em 1.625em;
+}
+
+.login__header :first-child {
+  margin-top: 0;
+}
+
+.login__header :last-child {
+  margin-bottom: 0;
+}
+
+.login h2 .icon {
+  margin-right: 14px;
+}
+
+.login__form {
+  background-color: #fff;
+  border-bottom-left-radius: 1.25em;
+  border-bottom-right-radius: 1.25em;
+  color: #777;
+  display: grid;
+  gap: 0.875em;
+  padding: 1.25em 1.625em;
+}
+
+.login input {
+  border-radius: 0.1875em;
+}
+
+.login input[type="email"],
+.login input[type="text"],
+.login input[type="date"],
+.login input[type="User"],
+.login input[type="password"] {
+  background-color: #eee;
+  color: #777;
+  padding: 0.25em 0.625em;
   width: 100%;
-  background-color: black;
-  opacity: 0.5;
-  z-index: 1;
 }
 
-/* Media Query for devices withi coarse pointers and no hover functionality */
-
-/* This will use a fallback image instead of a video for devices that commonly do not support the HTML5 video element */
-
-.form-group:first-child{
-  margin-top: 3vh;
-}
-.form-group{
-  margin-block: 1vh;
-}
-
-.example-full-width{
-  width: 100%;
-}
-
-@media (pointer: coarse) and (hover: none) {
-  header {
-    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
-  }
-
-  header video {
-    display: none;
-}
-}
-
-@media screen and (max-width:800px) {
-  .signupContainer{
-    width: 100% !important;
-  }
+.login input[type="submit"] {
+  display: block;
+  margin: 0 auto;
 }
